@@ -1,3 +1,9 @@
+---
+import { Image } from "astro:assets";
+import imageSrc from 'public/favicons/el-destino-logo-baja.jpeg'; // O desde 'public/images'
+
+---
+
 <div
   class=" "
 
@@ -14,8 +20,7 @@
           class="text-black hover:text-zinc-500 items-center font-normal uppercase gap-3 inline-flex "
           href="/"
         >
-
-         microblog
+        <Image src={imageSrc} alt='asd' width="50" height="50" />
         </a>
         <button
           @click="open = !open"
@@ -54,18 +59,26 @@
 
           <li>
             <a
-              href="https://lexingtonthemes.com/"
+              href=""
               class=" text-black hover:text-blue-500"
             >
-              Other Themes
+              Una pestaña
             </a>
           </li>
           <li>
             <a
-              href="https://github.com/michael-andreuzza/microblog"
+              href=""
+              class=" text-black hover:text-blue-500"
+            >
+              Otra pestaña
+            </a>
+          </li>
+          <li>
+            <a
+              href=""
               class="py-1.5 px-4 border focus:ring-2 h-8  rounded-full border-transparent bg-black hover:bg-black/10 text-white duration-200 focus:ring-offset-2 focus:ring-white hover:text-black inline-flex items-center justify-center ring-1 ring-transparent lg:ml-auto"
             >
-             GitHub
+             Pestaña especial
             </a>
           </li>
         </ul>
