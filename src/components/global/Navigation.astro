@@ -1,26 +1,20 @@
 ---
 import { Image } from "astro:assets";
-import imageSrc from 'public/favicons/logo-el-destino.svg'; // O desde 'public/images'
-
+import imageSrc from "public/favicons/logo-el-destino.svg"; // O desde 'public/images'
 ---
 
-<div
-  class=" "
-
->
-  <div class=" px-8 md:px-12 mx-auto max-w-7xl py-2  lg:px-32 text-xs">
+<div class="">
+  <div class="px-8 md:px-12 mx-auto max-w-7xl py-2 lg:px-32 text-xs">
     <div
       x-data="{ open: false }"
-      class="relative flex flex-col w-full  mx-auto   rounded-xl md:rounded-full md:items-center md:justify-between md:flex-row "
+      class="relative flex flex-col w-full mx-auto rounded-xl md:rounded-full md:items-center md:justify-between md:flex-row"
     >
-      <div
-        class="flex flex-row items-center justify-between md:justify-start"
-      >
+      <div class="flex flex-row items-center justify-between md:justify-start">
         <a
-          class="text-black hover:text-zinc-500 items-center font-normal uppercase gap-3 inline-flex "
+          class="text-black hover:text-zinc-500 items-center font-normal uppercase gap-3 inline-flex"
           href="/"
         >
-        <Image src={imageSrc} alt='asd' width="75" height="75" />
+          <Image src={imageSrc} alt="asd" width="75" height="75" />
         </a>
         <button
           @click="open = !open"
@@ -56,34 +50,44 @@ import imageSrc from 'public/favicons/logo-el-destino.svg'; // O desde 'public/i
         <ul
           class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left gap-3"
         >
+          <li>
+            <a href="/" class="text-black hover:text-blue-500"> home </a>
+          </li>
+          
+          <li>
+            <a href="" class="text-black hover:text-blue-500"> tengo un original </a>
+          </li>
+
+          <li>
+            <a href="" class="text-black hover:text-blue-500"> tienda online </a>
+          </li>
+          
+          <li>
+            <a href="" class="text-black hover:text-blue-500"> puntos de venta </a>
+          </li>
+          
+          <li>
+            <a href="" class="text-black hover:text-blue-500"> servicios editoriales </a>
+          </li>
+
+          <li>
+            <a href="/nosotros" class="text-black hover:text-blue-500"> nosotros </a>
+          </li>
+
+          <li>
+            <a href="" class="text-black hover:text-blue-500"> LhC </a>
+          </li>
 
           <li>
             <a
               href=""
-              class=" text-black hover:text-blue-500"
+              class="py-1.5 px-4 border focus:ring-2 h-8 rounded-full border-transparent bg-black hover:bg-black/10 text-white duration-200 focus:ring-offset-2 focus:ring-white hover:text-black inline-flex items-center justify-center ring-1 ring-transparent lg:ml-auto"
             >
-              Una pestaña
-            </a>
-          </li>
-          <li>
-            <a
-              href=""
-              class=" text-black hover:text-blue-500"
-            >
-              Otra pestaña
-            </a>
-          </li>
-          <li>
-            <a
-              href=""
-              class="py-1.5 px-4 border focus:ring-2 h-8  rounded-full border-transparent bg-black hover:bg-black/10 text-white duration-200 focus:ring-offset-2 focus:ring-white hover:text-black inline-flex items-center justify-center ring-1 ring-transparent lg:ml-auto"
-            >
-             Pestaña especial
+              Pestaña especial
             </a>
           </li>
         </ul>
       </nav>
     </div>
-
   </div>
 </div>
