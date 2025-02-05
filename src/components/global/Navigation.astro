@@ -14,7 +14,7 @@ import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/image
           class="text-black hover:text-zinc-500 items-center font-normal uppercase gap-3 inline-flex"
           href="/"
         >
-          <Image src={imageSrc} alt="asd" width="250" height="250" />
+          <Image src={imageSrc} alt="asd" width="300" height="200" />
         </a>
         <button
           @click="open = !open"
@@ -46,62 +46,70 @@ import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/image
       <nav
         :class="{'flex': open, 'hidden': !open}"
         class="flex-col flex-grow hidden py-12 md:py-0 md:flex md:items-end justify-center md:flex-row"
+        x-data="{ active: window.location.pathname }"
       >
         <ul
-          class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left gap-4"
+          class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left gap-4 text-[0.9rem]"
         >
-          <!-- <li>
-            <a href="/" class="text-black hover:text-blue-500"> home </a>
-          </li> -->
-
           <li>
-            <a href="tengo-un-original" class="text-black hover:text-blue-500">
-              tengo un original
-            </a>
-          </li>
-
-          <li>
-            <a href="tienda-online" class="text-black hover:text-blue-500">
-              tienda online
-            </a>
-          </li>
-
-          <li>
-            <a href="puntos-de-venta" class="text-black hover:text-blue-500">
-              puntos de venta
-            </a>
-          </li>
-
-          <li>
-            <a href="servicios-editoriales" class="text-black hover:text-blue-500">
-              servicios editoriales
-            </a>
-          </li>
-
-          <li>
-            <a href="/nosotros" class="text-black hover:text-blue-500">
-              nosotros
-            </a>
-          </li>
-
-          <li>
-              <a
-              href="lhc"
-              class="text-black hover:text-blue-500">
-              LhC
-            </a>
-          </li>
-
-          <!-- <li>
             <a
-              href="lhc"
-              class="py-1.5 px-4 border focus:ring-2 h-8 rounded-full border-transparent bg-black hover:bg-black/10 text-white duration-200 focus:ring-offset-2 focus:ring-white hover:text-black inline-flex items-center justify-center ring-1 ring-transparent lg:ml-auto"
+              href="/tengo-un-original"
+              :class="active.includes('/tengo-un-original') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+            >
+              Tengo un original
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/tienda-online"
+              :class="active.includes('/tienda-online') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+            >
+              Tienda online
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/puntos-de-venta"
+              :class="active.includes('/puntos-de-venta') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+            >
+              Puntos de venta
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/servicios-editoriales"
+              :class="active.includes('/servicios-editoriales') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+            >
+              Servicios editoriales
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/nosotros"
+              :class="active.includes('/nosotros') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+            >
+              Nosotros
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/lhc"
+              :class="active.includes('/lhc') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
               LhC
             </a>
-          </li> -->
+          </li>
         </ul>
       </nav>
     </div>
   </div>
 </div>
+
+
+
+<!-- class="py-1.5 px-4 border focus:ring-2 h-8 rounded-full border-transparent bg-black hover:bg-black/10 text-white duration-200 focus:ring-offset-2 focus:ring-white hover:text-black inline-flex items-center justify-center ring-1 ring-transparent lg:ml-auto" -->
