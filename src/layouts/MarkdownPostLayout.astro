@@ -50,7 +50,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
           src={frontmatter.image.url}
           alt={frontmatter.image.alt}
         />
-        <div class="flex flex-col md:flex-row mt-4 justify-between">
+        <!-- <div class="flex flex-col md:flex-row mt-4 justify-between">
           <p class="text-xs text-zinc-500">
             {frontmatter.pubDate.toString().slice(0, 10)} - Written by: {
               frontmatter.author
@@ -65,10 +65,14 @@ Use AstroSeo in all the pages you want different Seo than the index page
               ))
             }
           </div>
-        </div>
+        </div> -->
+        <h1
+          class="text-4xl tracking-tight text-balance mt-12 lg:mt-16 font-medium font-display text-black md:text-6xl">
+          {frontmatter.title}
+        </h1>
         <h1
           class="text-4xl tracking-tight text-balance mt-12 lg:mt-16 font-medium font-display text-black md:text-8xl">
-          {frontmatter.title}
+          {frontmatter.bookbinding}
         </h1>
         <p class="max-w-2xl mt-8 mx-auto text-zinc-500">
           <em>{frontmatter.description}</em>
