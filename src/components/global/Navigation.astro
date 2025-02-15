@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/images'
+import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'public/images'
 ---
 
 <div class="">
@@ -14,7 +14,7 @@ import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/image
           class="text-black hover:text-zinc-500 items-center font-normal uppercase gap-3 inline-flex"
           href="/"
         >
-          <Image src={imageSrc} alt="asd" width="300" height="200" />
+          <Image src={imageSrc} alt="asd" width="100" height="100" />
         </a>
         <button
           @click="open = !open"
@@ -49,14 +49,14 @@ import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/image
         x-data="{ active: window.location.pathname }"
       >
         <ul
-          class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left gap-4 text-[0.9rem]"
+          class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left gap-8 text-xl"
         >
           <li>
             <a
-              href="/tengo-un-original"
-              :class="active.includes('/tengo-un-original') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+              href="/"
+              :class="active.includes('/') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
-              Tengo un original
+              Home
             </a>
           </li>
 
@@ -65,7 +65,7 @@ import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/image
               href="/tienda-online"
               :class="active.includes('/tienda-online') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
-              Tienda online
+              Libros
             </a>
           </li>
 
@@ -74,18 +74,18 @@ import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/image
               href="/puntos-de-venta"
               :class="active.includes('/puntos-de-venta') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
-              Puntos de venta
+              Librerias
             </a>
           </li>
 
-          <li>
+          <!-- <li>
             <a
               href="/servicios-editoriales"
               :class="active.includes('/servicios-editoriales') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
               Servicios editoriales
             </a>
-          </li>
+          </li> -->
 
           <li>
             <a
@@ -101,7 +101,7 @@ import imageSrc from "public/images/banner_tienda.png"; // O desde 'public/image
               href="/lhc"
               :class="active.includes('/lhc') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
-              LhC
+              Contacto
             </a>
           </li>
         </ul>
