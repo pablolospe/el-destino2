@@ -54,7 +54,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li>
             <a
               href="/"
-              :class="active.includes('/') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+              :class="active === '/' ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
               Home
             </a>
@@ -62,8 +62,8 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
 
           <li>
             <a
-              href="/tienda-online"
-              :class="active.includes('/tienda-online') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+              href="/libros"
+              :class="active.includes('/libros') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
               Libros
             </a>
@@ -71,17 +71,17 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
 
           <li>
             <a
-              href="/puntos-de-venta"
-              :class="active.includes('/puntos-de-venta') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+              href="/librerias"
+              :class="active.includes('/librerias') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
-              Librerias
+              Librerías
             </a>
           </li>
 
           <!-- <li>
             <a
               href="/servicios-editoriales"
-              :class="active.includes('/servicios-editoriales') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+              :class="active.includes('/servicios-editoriales') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
               Servicios editoriales
             </a>
@@ -90,7 +90,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li>
             <a
               href="/nosotros"
-              :class="active.includes('/nosotros') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+              :class="active.includes('/nosotros') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
               Nosotros
             </a>
@@ -98,8 +98,8 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
 
           <li>
             <a
-              href="/lhc"
-              :class="active.includes('/lhc') ? 'border-black rounded-full p-1.5 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
+              href="/contacto"
+              :class="active.includes('/lhc') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-blue-500'"
             >
               Contacto
             </a>
