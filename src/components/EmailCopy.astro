@@ -2,50 +2,57 @@
 // src/components/EmailCopy.astro
 ---
 
-<div class="flex items-center space-x-2">
+<div class="flex items-center w-fit space-x-2">
     <span id="emailDisplay">eldestinoediciones@gmail.com</span>
     <button
-      id="copyEmailButton"
-      class="px-3 py-1 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        id="copyEmailButton"
+        class="px-3 py-1 hover:bg-gray-200  rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-500"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-5 w-5"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"
-        ></path>
-        <path
-          d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2H6zM5 5a1 1 0 011-1h8a1 1 0 011 1v11a1 1 0 01-1 1H6a1 1 0 01-1-1V5z"
-        ></path>
-      </svg>
+        <svg
+            fill="#000000"
+            height="2rem"
+            width="2rem"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 442 442"
+            xml:space="preserve"
+        >
+            <g>
+                <polygon points="291,0 51,0 51,332 121,332 121,80 291,80 	"
+                ></polygon>
+                <polygon points="306,125 306,195 376,195 	"></polygon>
+                <polygon
+                    points="276,225 276,110 151,110 151,442 391,442 391,225 	"
+                ></polygon>
+            </g>
+        </svg>
     </button>
-  </div>
-  
-  <script>
+</div>
+
+<script>
     document.addEventListener("DOMContentLoaded", () => {
-      const emailDisplay = document.getElementById("emailDisplay");
-      const copyEmailButton = document.getElementById("copyEmailButton");
-  
-      copyEmailButton.addEventListener("click", async () => {
-        const email = emailDisplay.textContent;
-  
-        try {
-          await navigator.clipboard.writeText(email);
-        //   alert("¡Correo electrónico copiado al portapapeles!"); // Opcional: feedback visual
-        } catch (err) {
-          console.error("Error al copiar el correo electrónico: ", err);
-        //   alert("No se pudo copiar el correo electrónico. Inténtalo de nuevo.");
-        }
-      });
+        const emailDisplay = document.getElementById("emailDisplay");
+        const copyEmailButton = document.getElementById("copyEmailButton");
+
+        copyEmailButton.addEventListener("click", async () => {
+            const email = emailDisplay.textContent;
+
+            try {
+                await navigator.clipboard.writeText(email);
+                //   alert("¡Correo electrónico copiado al portapapeles!"); // Opcional: feedback visual
+            } catch (err) {
+                console.error("Error al copiar el correo electrónico: ", err);
+                //   alert("No se pudo copiar el correo electrónico. Inténtalo de nuevo.");
+            }
+        });
     });
-  </script>
-  
-  <style>
+</script>
+
+<style>
     /* Estilos opcionales para la apariencia del icono */
     #copyEmailButton svg {
-      pointer-events: none; /* Permite hacer clic en el botón aunque el icono esté encima */
+        pointer-events: none; /* Permite hacer clic en el botón aunque el icono esté encima */
     }
-  </style>
+</style>
