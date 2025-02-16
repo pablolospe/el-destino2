@@ -29,7 +29,7 @@ const sortedPosts = allPosts.sort(
         }
       </ol> -->
       <ul
-        class="grid grid-cols-1 mt-0 gap-1 gap-y-24 lg:grid-cols-2 lg:mx-40 sm:grid-cols-2"
+        class="grid grid-cols-1 mb-8 gap-y-8 lg:grid-cols-2 sm:mx-20 sm:gap-20 lg:mx-52 lg:gap-52 sm:grid-cols-2 items-center"
       >
         {
           sortedPosts.map((post) => (
@@ -38,7 +38,6 @@ const sortedPosts = allPosts.sort(
               title={post.data.title}
               description={post.data.description}
               alt={post.data.title}
-              // alt={post.data.bookbinding}
               pubDate={post.data.pubDate.toString().slice(0, 10)}
               author={post.data.author}
               image={post.data.image.url}
