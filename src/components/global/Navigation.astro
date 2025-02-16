@@ -49,7 +49,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
         x-data="{ active: window.location.pathname }"
       >
         <ul
-          class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left gap-8 text-xl"
+          class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left gap-12 text-lg"
         >
           <li>
             <a
@@ -99,7 +99,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li>
             <a
               href="/contacto"
-              :class="active.includes('/lhc') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-gray-600'"
+              :class="active.includes('/contacto') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-gray-600'"
             >
               Contacto
             </a>
