@@ -1,18 +1,31 @@
+---
+import EmailCopy from "../EmailCopy.astro";
+---
 
 <footer class="bg-stone-100 border-t border-zinc-200 mt-auto">
-  <div class="px-8 md:px-12 mx-auto max-w-7xl py-6 lg:px-32">
+  <div class="grid grid-cols-2 px-8 md:px-12 mx-auto max-w-7xl py-6 lg:px-32">
     <section class="gap-y-6 gap-x-8">
       <div>
-        <p
-          class="text-sm text-zinc-600 lg:col-span-2"
-          x-data="{ year: new Date().getFullYear() }"
-        >
-          © 
-          <span x-text="year"></span> 
-          Martín Vittón Editorial 
-
-        </p>
+        <ul class="text-sm text-zinc-600 lg:col-span-2">
+          <li><b>El Destino Ediciones</b></li>
+          <li>eldestinoediciones@gmail.com </li>
+          <li>Ciudad de Buenos Aires, República Argentina</li>
+          <li x-data="{ year: new Date().getFullYear() }">
+            © <span x-text="year"></span>
+            El Destino Ediciones
+          </li>
+        </ul>
       </div>
+    </section>
+
+    <section class="flex gap-x-1 justify-center">
+      
+        <input 
+        class="w-80 text-xs h-10"
+        placeholder="Para suscribirte, por favor, dejanos tu mail."
+        type="text">
+        <button class="bg-black text-white p-2 h-10 cursor-pointer">Enviar</button>
+      
     </section>
   </div>
 </footer>
