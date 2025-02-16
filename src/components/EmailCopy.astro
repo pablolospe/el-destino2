@@ -1,0 +1,51 @@
+---
+// src/components/EmailCopy.astro
+---
+
+<div class="flex items-center space-x-2">
+    <span id="emailDisplay">eldestinoediciones@gmail.com</span>
+    <button
+      id="copyEmailButton"
+      class="px-3 py-1 bg-indigo-500 hover:bg-indigo-700 text-white rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"
+        ></path>
+        <path
+          d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2H6zM5 5a1 1 0 011-1h8a1 1 0 011 1v11a1 1 0 01-1 1H6a1 1 0 01-1-1V5z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const emailDisplay = document.getElementById("emailDisplay");
+      const copyEmailButton = document.getElementById("copyEmailButton");
+  
+      copyEmailButton.addEventListener("click", async () => {
+        const email = emailDisplay.textContent;
+  
+        try {
+          await navigator.clipboard.writeText(email);
+        //   alert("¡Correo electrónico copiado al portapapeles!"); // Opcional: feedback visual
+        } catch (err) {
+          console.error("Error al copiar el correo electrónico: ", err);
+        //   alert("No se pudo copiar el correo electrónico. Inténtalo de nuevo.");
+        }
+      });
+    });
+  </script>
+  
+  <style>
+    /* Estilos opcionales para la apariencia del icono */
+    #copyEmailButton svg {
+      pointer-events: none; /* Permite hacer clic en el botón aunque el icono esté encima */
+    }
+  </style>
