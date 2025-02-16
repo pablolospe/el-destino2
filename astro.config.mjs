@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
+import dotenv from 'dotenv'; // Importa dotenv
+dotenv.config(); // Carga las variables de entorno desde .env
+
 // https://astro.build/config
 export default defineConfig({
    vite: {
