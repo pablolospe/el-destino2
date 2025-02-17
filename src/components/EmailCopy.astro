@@ -37,7 +37,7 @@
   
         try {
           await navigator.clipboard.writeText(email);
-          //   alert("¡Correo electrónico copiado al portapapeles!"); // Opcional: feedback visual
+            console.log("¡Correo electrónico copiado al portapapeles!"); // Opcional: feedback visual
         } catch (err) {
           console.error("Error al copiar el correo electrónico: ", err);
           //   alert("No se pudo copiar el correo electrónico. Inténtalo de nuevo.");
