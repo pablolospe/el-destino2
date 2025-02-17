@@ -8,7 +8,7 @@ import { AstroSeo } from "@astrolib/seo";
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="Title"
+  title={frontmatter.title}
   description="Your site description goes here"
   canonical="https://www.lexingtonthemes.com"
   openGraph={{
@@ -44,7 +44,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 
 <BaseLayout>
   <section>
-    <div class="px-8 py-8 md:px-12 mx-auto max-w-7xl lg:px-32">
+    <div class="px-8 py-8 md:px-12 mx-auto max-w-7xl lg:px-52">
       <div class="text-center">
         <h1
           class="text-4xl tracking-tight text-balance font-medium font-display text-black md:text-3xl"
@@ -61,17 +61,17 @@ Use AstroSeo in all the pages you want different Seo than the index page
         <br />
 
         <section class="">
-          <article class="grid grid-cols-1 md:grid-cols-5 justify-start gap-16">
+          <article class="grid grid-cols-1 md:grid-cols-5 justify-start md:gap-16">
             <div class="w-full col-span-2">
               <img
-              transition:name={`portada${frontmatter.image.url}`}
+                transition:name={`portada${frontmatter.image.url}`}
                 class=" w-full"
                 src={frontmatter.image.url}
                 alt={frontmatter.image.alt}
               />
             </div>
 
-            <div class="w-full col-span-3">
+            <div class="w-full col-span-3 mt-4 md:mt-0">
               <ul class="text-left font-sans">
                 <li
                   class="tracking-tight text-balance font-extralight text-sm text-zink-600"
@@ -102,17 +102,19 @@ Use AstroSeo in all the pages you want different Seo than the index page
             </div>
           </article>
 
-          <article class="grid grid-cols-1 md:grid-cols-5 gap-16">
+          <br>
+          
+          <article class="grid grid-cols-1 md:grid-cols-5 md:gap-16">
             <div class="w-full col-span-2">
               <img
-                class="w-full mt-8"
+                class="w-full "
                 src={frontmatter.portrait.url}
                 alt={frontmatter.portrait.alt}
               />
             </div>
 
             <p
-              class="w-full text-left col-span-3 mt-10 text-lg lg:text-xl font-light"
+              class="w-full text-left col-span-3  text-lg lg:text-xl font-light"
             >
               {frontmatter.bio}
             </p>
