@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-01-01
+pubDate: 2025-02-01
 author: Gustavo Garabal
 bio: "Gustavo García Garabal nació en Buenos Aires, en 1951. Licenciado en Psicología y profesor universitario. Ha participado en los talleres de escritura de Félix Bruzzone y de Silvina Gruppo. Algunos de sus trabajos han recibido menciones en concursos literarios. En 2021 publicó Bichos muertos, su primer libro de cuentos."
 title: La señora y el chancho
