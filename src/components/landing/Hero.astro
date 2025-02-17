@@ -5,24 +5,19 @@ import banner from "public/images/banner_tienda.png"; // O desde 'public/images'
 ---
 
 <section >
-  <div class="px-8 py-4 md:px-12 mx-auto lg:pb-8 max-w-7xl lg:px-8 ">
+  <div class="px-8 py-4 md:px-12 mx-auto lg:pb-8 w-7xl lg:px-8 -z-30">
     <div class="flex flex-col justify-center items-center">
 
       <Image 
-      transition:animate={fade({duration:'2s'})}
-      src={banner} alt="asd" width="300" height="100" />
+      transition:animate={fade({duration:'0.5s'})}
+      src={banner} alt="asd" width="300" height="300" />
 
-      
       <h1 
-      transition:animate={fade({duration:'3s'})}
-      class="text-4xl tracking-tight text-balance font-medium font-display text-black md:text-2xl">
+      transition:animate={fade({duration:'0.8s'})}
+      class="text-4xl w-full text-center tracking-tight text-balance font-medium font-display text-black md:text-2xl">
         Libros para amantes de los libros
       </h1>
-      
-      <!-- 
-      <h2 class="text-2xl tracking-tight text-balance font-medium font-display text-black md:text-3xl">
-        30 años haciendo libros
-      </h2> -->
+
 
     </div>
   </div>
