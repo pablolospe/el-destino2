@@ -2,17 +2,20 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import EmailCopy from "@/components/EmailCopy.astro";
 import Footer from "@/components/global/Footer.astro";
+import PhoneCopy from "@/components/PhoneCopy.astro";
 ---
 
 <BaseLayout>
-    <section class="h-[60vh] flex justify-center items-center mx-4 md:mx-60 text-lg font-light text-left">
-        <div class=" w-fit flex flex-col gap-1" >
-
+    <section
+        class="h-[60vh] flex justify-center items-center mx-4 md:mx-60 text-lg font-light text-left"
+    >
+        <div class="w-fit flex flex-col gap-1">
             <EmailCopy />
-            <p>+54 911 60531975</p>
-            <p>Ciudad de Buenos Aires, República Argentina</p>
+            <PhoneCopy />
+            <!-- <p>+54 911 60531975</p> -->
+            <p class="ml-4 p-1">Ciudad de Buenos Aires, República Argentina</p>
         </div>
     </section>
-    <br>
-    <Footer/>
+    <br />
+    <Footer />
 </BaseLayout>
