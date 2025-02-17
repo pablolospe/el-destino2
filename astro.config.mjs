@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vercel from "@astrojs/vercel/serverless"; // Para Serverless Functions
+import vercel from "@astrojs/vercel"; // Para Serverless Functions
 import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from "@astrojs/sitemap";
@@ -26,6 +26,6 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: '',
+  site: 'https://el-destino.vercel.app/',
   integrations: [sitemap(), mdx()]
 });
