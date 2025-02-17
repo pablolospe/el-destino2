@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import vercel from "@astrojs/vercel/serverless"; // Para Serverless Functions
 import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from "@astrojs/sitemap";
@@ -9,7 +10,9 @@ dotenv.config(); // Carga las variables de entorno desde .env
 
 // https://astro.build/config
 export default defineConfig({
-   vite: {
+  output: "server",
+  adapter: vercel(),
+  vite: {
     plugins: [tailwindcss()],
   },
   markdown: {
