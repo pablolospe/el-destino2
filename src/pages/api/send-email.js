@@ -10,7 +10,7 @@ export const POST = async ({ request }) => {
     const requestData = await request.json();
     const { nombre, libreria, direccion, localidad, codigo_postal, email, telefono } = requestData;
 
-    console.log(requestData, localidad)
+    // console.log(requestData, localidad)
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -22,15 +22,23 @@ export const POST = async ({ request }) => {
       },
     });
 
-    const mailOptions = {
-      from: process.env.SMTP_USER,
-      to: process.env.DESTINATION_EMAIL,
-      subject: 'Formulario de Librería - El Destino',
-      text: `Nuevo formulario de librería:\n\nNombre: ${String(nombre)}\nLibrería: ${String(libreria)}\nDirección: ${String(direccion)}\nLocalidad: ${String(localidad)}\nCódigo Postal: ${String(codigo_postal)}\nEmail: ${String(email)}\nTeléfono: ${String(telefono)}`,
-    };
+      const mailOptions = {
+        from: process.env.SMTP_USER,
+        to: process.env.DESTINATION_EMAIL,
+        subject: 'Nueva suscripción',
+        text: `Email: ${String(email)}`,
+      };
 
-    console.log(mailOptions);
-    await transporter.sendMail(mailOptions);
+      const mailOptionsFull = {
+        from: process.env.SMTP_USER,
+        to: process.env.DESTINATION_EMAIL,
+        subject: 'Formulario de Librería - El Destino',
+        text: `Nuevo formulario de librería:\n\nNombre: ${String(nombre)}\nLibrería: ${String(libreria)}\nDirección: ${String(direccion)}\nLocalidad: ${String(localidad)}\nCódigo Postal: ${String(codigo_postal)}\nEmail: ${String(email)}\nTeléfono: ${String(telefono)}`,
+      };
+    
+
+    // console.log(mailOptions);
+    await transporter.sendMail( !!libreria ? mailOptionsFull : mailOptions );
 
     return new Response(JSON.stringify({ message: 'Correo enviado correctamente' }), { status: 200 });
   } catch (error) {
