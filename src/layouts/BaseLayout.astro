@@ -2,11 +2,13 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Navigation from "@/components/global/Navigation.astro";
 import Footer from "@/components/global/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <html lang="en">
   <head>
     <BaseHead />
+    <ClientRouter />
   </head>
   <body class="bg-white flex flex-col min-h-screen">
     <Navigation />

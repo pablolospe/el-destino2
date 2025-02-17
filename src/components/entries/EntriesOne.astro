@@ -1,5 +1,4 @@
 ---
-
 const { title, url, description, pubDate, author, image, tags } = Astro.props;
 ---
 
@@ -9,10 +8,11 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
       <div class="block w-full lg:col-span-2">
         <!-- class="aspect-[2/3] object-cover bg-center h-full w-full" -->
         <img
-          class=" object-cover bg-center h-full w-full shadow-2xl shadow-black"
+          transition:name={`portada${image}`}
+          class="object-cover bg-center h-full w-full shadow-2xl shadow-black"
           src={image}
           alt={title}
-          />
+        />
       </div>
 
       <!-- <div

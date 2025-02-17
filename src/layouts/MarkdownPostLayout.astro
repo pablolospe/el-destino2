@@ -57,12 +57,13 @@ Use AstroSeo in all the pages you want different Seo than the index page
           de {frontmatter.author}
         </h2>
 
-        <br>
+        <br />
 
         <section class="">
           <article class="grid grid-cols-1 md:grid-cols-5 justify-start">
             <div class="w-full col-span-2">
               <img
+              transition:name={`portada${frontmatter.image.url}`}
                 class="p-8"
                 src={frontmatter.image.url}
                 alt={frontmatter.image.alt}
@@ -114,7 +115,6 @@ Use AstroSeo in all the pages you want different Seo than the index page
             >
               {frontmatter.bio}
             </p>
-
           </article>
         </section>
         <div
