@@ -41,6 +41,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
     cardType: "summary_large_image",
   }}
 />
+
 <BaseLayout>
   <section>
     <div class="px-8 py-8 md:px-12 mx-auto max-w-7xl lg:px-32">
@@ -60,17 +61,17 @@ Use AstroSeo in all the pages you want different Seo than the index page
         <br />
 
         <section class="">
-          <article class="grid grid-cols-1 md:grid-cols-5 justify-start">
+          <article class="grid grid-cols-1 md:grid-cols-5 justify-start gap-16">
             <div class="w-full col-span-2">
               <img
               transition:name={`portada${frontmatter.image.url}`}
-                class="p-8"
+                class=" w-full"
                 src={frontmatter.image.url}
                 alt={frontmatter.image.alt}
               />
             </div>
 
-            <div class="w-full col-span-3 p-8">
+            <div class="w-full col-span-3">
               <ul class="text-left font-sans">
                 <li
                   class="tracking-tight text-balance font-extralight text-sm text-zink-600"
@@ -101,17 +102,17 @@ Use AstroSeo in all the pages you want different Seo than the index page
             </div>
           </article>
 
-          <article class="grid grid-cols-1 md:grid-cols-5">
+          <article class="grid grid-cols-1 md:grid-cols-5 gap-16">
             <div class="w-full col-span-2">
               <img
-                class="p-8"
+                class="w-full mt-8"
                 src={frontmatter.portrait.url}
                 alt={frontmatter.portrait.alt}
               />
             </div>
 
             <p
-              class="w-full text-left col-span-3 mt-10 text-lg lg:text-xl font-light p-8"
+              class="w-full text-left col-span-3 mt-10 text-lg lg:text-xl font-light"
             >
               {frontmatter.bio}
             </p>
