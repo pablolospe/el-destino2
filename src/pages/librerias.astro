@@ -13,7 +13,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
             <li>Librería de la Esquina</li>
         </ul>
 
-        <form id="contactForm" class="space-y-4 bg-gray-100 p-8 border border-zinc-200 rounded">
+        <form
+            id="contactForm"
+            class="space-y-4 bg-gray-100 p-8 border border-zinc-200 rounded"
+        >
             <h3 class="text-[1.1rem]">
                 Si tenés una librería y querés ofrecer libros de El Destino, por
                 favor, completá este formulario:
@@ -124,13 +127,25 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
                 />
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex flex-col justify-center items-center">
                 <button
+                    id="submitButton"
                     type="submit"
-                    class="bg-black text-white px-4 py-2 h-full hover:bg-gray-800 transition duration-300 cursor-pointer"
+                    class="bg-black text-white mt-4 px-4 py-2 h-full hover:bg-gray-800 transition duration-300 cursor-pointer rounded disabled:bg-gray-500 disabled:text-gray-300 disabled:cursor-default disabled:hover:bg-gray-500"
                 >
                     Enviar formulario
                 </button>
+                <small
+                    id="success"
+                    class="relative text-center text-blue-600 w-full mt-4 hidden"
+                    >Formulario enviado correctamente</small
+                >
+                <small
+                    id="error"
+                    class="relative text-center text-red-600 w-full mt-4 hidden"
+                    >Hubo un error al enviar el mensaje. Por favor, inténtalo de
+                    nuevo</small
+                >
             </div>
         </form>
         <br />
@@ -145,6 +160,18 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
                 const form = event.target;
                 const formData = new FormData(form);
+                const inputs = document.getElementsByTagName("input");
+                const successElement = document.getElementById("success");
+                const errorElement = document.getElementById("error");
+                const submitButton = document.getElementById("submitButton"); // Obtén el botón
+
+                // Deshabilitar el botón y los inputs
+                submitButton.disabled = true;
+                submitButton.classList.add("bg-gray-500", "cursor-not-allowed"); // Cambia el estilo del botón
+
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].disabled = true;
+                }
 
                 // Convertir FormData a un objeto JSON
                 const jsonObject = {};
@@ -152,32 +179,46 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
                     jsonObject[key] = value;
                 });
 
-                // console.log(jsonObject); // Verifica la estructura antes de enviarla
-
                 try {
                     const response = await fetch("/api/send-email", {
                         method: "POST",
                         body: JSON.stringify(jsonObject),
                         headers: {
-                            "Content-Type": "application/json", // Cambiado a JSON
+                            "Content-Type": "application/json",
                         },
                     });
 
                     if (response.ok) {
-                        alert("¡Mensaje enviado correctamente!");
+                        successElement.classList.remove("hidden");
                         form.reset(); // Limpia el formulario después del éxito
+
+                        // No habilitar el botón ni los inputs aquí, ya que permanecen deshabilitados
                     } else {
                         const errorData = await response.json();
                         console.error("Error al enviar el mensaje:", errorData);
-                        alert(
-                            "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+                        errorElement.classList.remove("hidden");
+                        // Habilitar el botón y los inputs en caso de error
+                        submitButton.disabled = false;
+                        submitButton.classList.remove(
+                            "bg-gray-500",
+                            "cursor-not-allowed",
                         );
+                        for (let i = 0; i < inputs.length; i++) {
+                            inputs[i].disabled = false;
+                        }
                     }
                 } catch (error) {
                     console.error("Error de red:", error);
-                    alert(
-                        "Hubo un error de red al enviar el mensaje. Por favor, inténtalo de nuevo.",
+                    errorElement.classList.remove("hidden");
+                    // Habilitar el botón y los inputs en caso de error
+                    submitButton.disabled = false;
+                    submitButton.classList.remove(
+                        "bg-gray-500",
+                        "cursor-not-allowed",
                     );
+                    for (let i = 0; i < inputs.length; i++) {
+                        inputs[i].disabled = false;
+                    }
                 }
             });
     </script>
