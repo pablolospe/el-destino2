@@ -1,72 +1,23 @@
----
-import EmailCopy from "../EmailCopy.astro";
----
-
 <footer class="bg-stone-100 border-t border-zinc-200 mt-auto">
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 px-8 md:px-12 mx-auto max-w-7xl py-6 lg:px-32"
-  >
+  <div class="grid grid-cols-1 md:grid-cols-2 px-8 md:px-12 mx-auto max-w-7xl py-6 lg:px-32 gap-8">
     <section class="gap-y-6 gap-x-8">
       <div class="flex flex-col">
         <div class="flex justify-start gap-4 mb-2">
-          <a
-            href="https://www.facebook.com/profile.php?id=61563371720129"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <svg
-              fill="#000000"
-              height="2rem"
-              width="2rem"
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="-143 145 512 512"
-              xml:space="preserve"
-            >
-              <path
-                d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M169.5,357.6l-2.9,38.3h-39.3
-         v133H77.7v-133H51.2v-38.3h26.5v-25.7c0-11.3,0.3-28.8,8.5-39.7c8.7-11.5,20.6-19.3,41.1-19.3c33.4,0,47.4,4.8,47.4,4.8l-6.6,39.2
-         c0,0-11-3.2-21.3-3.2c-10.3,0-19.5,3.7-19.5,14v29.9H169.5z"
-              ></path>
+          <a href="https://www.facebook.com/profile.php?id=61563371720129" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg fill="#000000" height="2rem" width="2rem" viewBox="-143 145 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M169.5,357.6l-2.9,38.3h-39.3
+                v133H77.7v-133H51.2v-38.3h26.5v-25.7c0-11.3,0.3-28.8,8.5-39.7c8.7-11.5,20.6-19.3,41.1-19.3c33.4,0,47.4,4.8,47.4,4.8l-6.6,39.2
+                c0,0-11-3.2-21.3-3.2c-10.3,0-19.5,3.7-19.5,14v29.9H169.5z" />
             </svg>
           </a>
-          <a
-            href="https://www.instagram.com/eldestinoediciones"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <svg
-              fill="#000000"
-              height="2rem"
-              width="2rem"
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="-143 145 512 512"
-              xml:space="preserve"
-            >
+          <a href="https://www.instagram.com/eldestinoediciones" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg fill="#000000" height="2rem" width="2rem" viewBox="-143 145 512 512" xmlns="http://www.w3.org/2000/svg">
               <g>
-                <path
-                  d="M113,446c24.8,0,45.1-20.2,45.1-45.1c0-9.8-3.2-18.9-8.5-26.3c-8.2-11.3-21.5-18.8-36.5-18.8s-28.3,7.4-36.5,18.8
-		c-5.3,7.4-8.5,16.5-8.5,26.3C68,425.8,88.2,446,113,446z"
-                ></path>
-                <polygon
-                  points="211.4,345.9 211.4,308.1 211.4,302.5 205.8,302.5 168,302.6 168.2,346 	"
-                ></polygon>
-                <path
-                  d="M183,401c0,38.6-31.4,70-70,70c-38.6,0-70-31.4-70-70c0-9.3,1.9-18.2,5.2-26.3H10v104.8C10,493,21,504,34.5,504h157
-		c13.5,0,24.5-11,24.5-24.5V374.7h-38.2C181.2,382.8,183,391.7,183,401z"
-                ></path>
-                <path
-                  d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M241,374.7v104.8
-		c0,27.3-22.2,49.5-49.5,49.5h-157C7.2,529-15,506.8-15,479.5V374.7v-52.3c0-27.3,22.2-49.5,49.5-49.5h157
-		c27.3,0,49.5,22.2,49.5,49.5V374.7z"
-                ></path>
+                <path d="M113,446c24.8,0,45.1-20.2,45.1-45.1c0-9.8-3.2-18.9-8.5-26.3c-8.2-11.3-21.5-18.8-36.5-18.8s-28.3,7.4-36.5,18.8
+                  c-5.3,7.4-8.5,16.5-8.5,26.3C68,425.8,88.2,446,113,446z" />
+                <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M241,374.7v104.8
+                  c0,27.3-22.2,49.5-49.5,49.5h-157C7.2,529-15,506.8-15,479.5V374.7v-52.3c0-27.3,22.2-49.5,49.5-49.5h157
+                  c27.3,0,49.5,22.2,49.5,49.5V374.7z" />
               </g>
             </svg>
           </a>
@@ -75,73 +26,86 @@ import EmailCopy from "../EmailCopy.astro";
           <li><b>El Destino Ediciones</b></li>
           <li>eldestinoediciones@gmail.com</li>
           <li>Ciudad de Buenos Aires, República Argentina</li>
-          <li x-data="{ year: new Date().getFullYear() }">
-            © <span x-text="year"></span>
-            El Destino Ediciones
-          </li>
+          <li x-data="{ year: new Date().getFullYear() }">© <span x-text="year"></span> El Destino Ediciones</li>
         </ul>
       </div>
     </section>
 
-    <section class="flex gap-x-1 justify-center">
-      <form id="emailForm" class="space-y-4">
-        <input
-          id="email"
-          name="email"
-          class="w-80 text-xs h-10"
-          placeholder="Para suscribirte, por favor, dejanos tu mail."
-          type="text"
-        />
-        <button
-          type="submit"
-          class="bg-black text-white p-2 h-10 cursor-pointer">Enviar</button
-        >
+    <section class="flex justify-end items-start">
+      <form id="emailForm" class="w-full max-w-lg">
+        <div class="flex gap-2 items-center h-10">
+          <input
+            id="subscriptionEmail"
+            name="subscriptionEmail"
+            class="w-80 h-full text-xs px-4 py-2 border border-gray-300 "
+            placeholder="Para suscribirte, por favor, dejanos tu mail."
+            type="email"
+            required
+          />
+          <button
+            id="button"
+            type="submit"
+            class="bg-black text-white px-4 py-2 h-full hover:bg-gray-800 transition duration-300 cursor-pointer"
+          >
+            Enviar
+          </button>
+          <button
+            id="buttonDisabled"
+            class="bg-gray-300 text-white px-4 py-2 h-full hidden"
+          >
+            Enviar
+          </button>
+        </div>
+        <small id="emailError" class="absolute pt-1 text-red-600 w-full ml-4 hidden">Ingrese un email válido</small>
+        <small id="success" class="absolute pt-1 text-blue-600 w-full ml-4 hidden">Email enviado correctamente</small>
       </form>
     </section>
   </div>
 </footer>
 
 <script is:inline>
-  document
-    .getElementById("emailForm")
-    .addEventListener("submit", async (event) => {
-      event.preventDefault();
+  document.getElementById("emailForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-      const form = event.target;
-      const formData = new FormData(form);
+    const emailInput = document.getElementById("subscriptionEmail");
+    const emailValue = emailInput.value.trim();
+    const success = document.getElementById("success");
+    const emailError = document.getElementById("emailError");
+    const button = document.getElementById("button");
+    const buttonDisabled = document.getElementById("buttonDisabled");
 
-      // Convertir FormData a un objeto JSON
-      const jsonObject = {};
-      formData.forEach((value, key) => {
-        jsonObject[key] = value;
+    // Validación de email en JS
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(emailValue)) {
+      emailError.classList.remove("hidden"); 
+      return;
+    } else {
+      emailError.classList.add("hidden"); 
+    }
+
+    const formData = { email: emailValue };
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
       });
 
-      console.log(jsonObject); // Verifica la estructura antes de enviarla
+      if (response.ok) {
+        // alert("¡Mensaje enviado correctamente!");
+        success.classList.remove("hidden"); 
+        buttonDisabled.classList.remove("hidden"); 
+        button.classList.add("hidden"); 
 
-      try {
-        const response = await fetch("/api/send-email", {
-          method: "POST",
-          body: JSON.stringify(jsonObject),
-          headers: {
-            "Content-Type": "application/json", // Cambiado a JSON
-          },
-        });
-
-        if (response.ok) {
-          alert("¡Mensaje enviado correctamente!");
-          form.reset(); // Limpia el formulario después del éxito
-        } else {
-          const errorData = await response.json();
-          console.error("Error al enviar el mensaje:", errorData);
-          alert(
-            "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
-          );
-        }
-      } catch (error) {
-        console.error("Error de red:", error);
-        alert(
-          "Hubo un error de red al enviar el mensaje. Por favor, inténtalo de nuevo.",
-        );
+        emailInput.value = ""; // Limpia el input después del éxito
+      } else {
+        console.error("Error al enviar el mensaje:", await response.json());
+        alert("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
       }
-    });
+    } catch (error) {
+      console.error("Error de red:", error);
+      alert("Hubo un error de red al enviar el mensaje. Por favor, inténtalo de nuevo.");
+    }
+  });
 </script>
