@@ -4,7 +4,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
 ---
 
 <div class="border-b border-zinc-200 ">
-  <div class="px-8 md:px-12 mx-auto max-w-7xl lg:px-32 ">
+  <div class="px-8 md:px-12 mx-auto max-w-7xl lg:px-3 py-22 ">
     <div
       x-data="{ open: false }"
       class="relative flex flex-col w-full mx-auto rounded-xl md:rounded-full md:items-center md:justify-between md:flex-row"
@@ -54,7 +54,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li class="w-20">
             <a
               href="/"
-              :class="active === '/' ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-gray-600 p-3'"
+              :class="active === '/' ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
             >
               Inicio
             </a>
@@ -63,7 +63,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li class="w-20">
             <a
               href="/libros"
-              :class="active.includes('/libros') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-gray-600 p-3'"
+              :class="active.includes('/libros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
             >
               Libros
             </a>
@@ -72,7 +72,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li class="w-20">
             <a
               href="/librerias"
-              :class="active.includes('/librerias') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-gray-600 p-3'"
+              :class="active.includes('/librerias') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
             >
               Librerías
             </a>
@@ -81,7 +81,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li class="w-20">
             <a
               href="/nosotros"
-              :class="active.includes('/nosotros') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-gray-600 p-3'"
+              :class="active.includes('/nosotros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
             >
               Nosotros
             </a>
@@ -90,7 +90,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
           <li class="w-20">
             <a
               href="/contacto"
-              :class="active.includes('/contacto') ? 'border-black rounded-full p-3 bg-gray-900 text-white' : 'text-black hover:text-gray-600 p-3'"
+              :class="active.includes('/contacto') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
             >
               Contacto
             </a>
