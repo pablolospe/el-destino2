@@ -84,13 +84,64 @@ import EmailCopy from "../EmailCopy.astro";
     </section>
 
     <section class="flex gap-x-1 justify-center">
-      <input
-        class="w-80 text-xs h-10"
-        placeholder="Para suscribirte, por favor, dejanos tu mail."
-        type="text"
-      />
-      <button class="bg-black text-white p-2 h-10 cursor-pointer">Enviar</button
-      >
+      <form id="emailForm" class="space-y-4">
+        <input
+          id="email"
+          name="email"
+          class="w-80 text-xs h-10"
+          placeholder="Para suscribirte, por favor, dejanos tu mail."
+          type="text"
+        />
+        <button
+          type="submit"
+          class="bg-black text-white p-2 h-10 cursor-pointer">Enviar</button
+        >
+      </form>
     </section>
   </div>
 </footer>
+
+<script is:inline>
+  document
+    .getElementById("emailForm")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+
+      // Convertir FormData a un objeto JSON
+      const jsonObject = {};
+      formData.forEach((value, key) => {
+        jsonObject[key] = value;
+      });
+
+      console.log(jsonObject); // Verifica la estructura antes de enviarla
+
+      try {
+        const response = await fetch("/api/send-email", {
+          method: "POST",
+          body: JSON.stringify(jsonObject),
+          headers: {
+            "Content-Type": "application/json", // Cambiado a JSON
+          },
+        });
+
+        if (response.ok) {
+          alert("¡Mensaje enviado correctamente!");
+          form.reset(); // Limpia el formulario después del éxito
+        } else {
+          const errorData = await response.json();
+          console.error("Error al enviar el mensaje:", errorData);
+          alert(
+            "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+          );
+        }
+      } catch (error) {
+        console.error("Error de red:", error);
+        alert(
+          "Hubo un error de red al enviar el mensaje. Por favor, inténtalo de nuevo.",
+        );
+      }
+    });
+</script>
