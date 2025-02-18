@@ -31,6 +31,7 @@
 
 /* CSS */
 :root {
+  scrollbar-width: none; /* Firefox */
   font-family: Inter, sans-serif;
 }
 @supports (font-variation-settings: normal) {
@@ -52,6 +53,10 @@
   --astro-code-token-string-expression: #fe351b;
   --astro-code-token-punctuation: #ffffff;
   --astro-code-token-link: #ffffff;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Edge */
 }
 
 

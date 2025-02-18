@@ -6,19 +6,15 @@ import PhoneCopy from "@/components/PhoneCopy.astro";
 ---
 
 <BaseLayout>
-    
-        <section
-            class="flex-1 flex justify-center items-center mx-4 md:mx-60 text-lg font-light text-left"
-        >
-            <div class="w-fit flex flex-col gap-1">
-                <EmailCopy />
-                <PhoneCopy />
-                
-                <p class="ml-4 p-1">
-                    Ciudad de Buenos Aires, República Argentina
-                </p>
-            </div>
-        </section>
-        <Footer />
+    <section
+        class="w-full flex flex-1 justify-center items-center mx-4 md:mx-60 text-lg font-light text-left"
+    >
+        <div class="w-fit flex flex-col gap-1">
+            <EmailCopy />
+            <PhoneCopy />
 
+            <p class="ml-4 p-1">Ciudad de Buenos Aires, República Argentina</p>
+        </div>
+    </section>
+    <Footer />
 </BaseLayout>

@@ -3,55 +3,58 @@ import { Image } from "astro:assets";
 import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'public/images'
 ---
 
-<div class="border-b border-zinc-200 md:px-4 lg:px-10">
-  <div class="px-8 md:px-12 mx-auto max-w-7xl lg:px-3 py-22 ">
-    <div
-      x-data="{ open: false }"
-      class="relative flex flex-col w-full mx-auto rounded-xl md:rounded-full md:items-center md:justify-between md:flex-row"
-    >
-      <div class="flex flex-row items-center justify-between md:justify-start">
-        <a
-          class="text-black hover:text-zinc-500 items-center font-normal uppercase gap-3 inline-flex"
-          href="/"
+<div class="border-b w-full border-zinc-200">
+  <div
+    x-data="{ open: false }"
+    class="relative flex flex-col w-full mx-auto md:items-center md:justify-between md:flex-row"
+  >
+    <div class="flex flex-row items-center justify-end md:justify-start">
+      <button
+        @click="open = !open"
+        class="inline-flex items-center justify-center p-2 text-black hover:text-gray-600 focus:outline-none focus:text-black md:hidden"
+      >
+        <svg
+          class="w-6 h-6"
+          stroke="currentColor"
+          fill="none"
+          viewBox="0 0 24 24"
         >
-          <Image src={imageSrc} alt="asd" width="100" height="100" />
-        </a>
-        <button
-          @click="open = !open"
-          class="inline-flex items-center justify-center p-2 text-black hover:text-gray-600 focus:outline-none focus:text-black md:hidden"
-        >
-          <svg
-            class="w-6 h-6"
-            stroke="currentColor"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              :class="{'hidden': open, 'inline-flex': !open }"
-              class="inline-flex"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-            <path
-              :class="{'hidden': !open, 'inline-flex': open }"
-              class="hidden"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
+          <path
+            :class="{'hidden': open, 'inline-flex': !open }"
+            class="inline-flex"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+          <path
+            :class="{'hidden': !open, 'inline-flex': open }"
+            class="hidden"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="w-full md:mx-10 lg:mx20 xl:mx-40">
       <nav
         :class="{'flex': open, 'hidden': !open}"
-        class="flex-col flex-grow hidden py-12 md:py-0 md:flex md:items-end justify-center md:flex-row"
+        class="w-full hidden md:flex"
         x-data="{ active: window.location.pathname }"
       >
         <ul
-          class="space-y-2 list-none md:space-y-0 md:ml-auto items-center md:inline-flex justify-center text-center md:text-left md:gap-4 lg:gap-12 text-lg"
+          class="flex flex-col md:flex-row w-full space-y-2 list-none md:space-y-0 items-center md:inline-flex justify-between text-center text-lg"
         >
-          <li class="w-20">
+          <li class="w-24">
+            <a class="hidden md:block" href="/">
+              <Image src={imageSrc} alt="asd" width="100" height="100" />
+            </a>
+          </li>
+
+          <li class="w-20 xl:w-40 flex"></li>
+
+          <li class="w-20 flex flex-col items-center">
             <a
               href="/"
               :class="active === '/' ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
@@ -60,7 +63,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             </a>
           </li>
 
-          <li class="w-20">
+          <li class="w-20 flex flex-col items-center">
             <a
               href="/libros"
               :class="active.includes('/libros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
@@ -69,7 +72,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             </a>
           </li>
 
-          <li class="w-20">
+          <li class="w-20 flex flex-col items-center">
             <a
               href="/librerias"
               :class="active.includes('/librerias') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
@@ -78,7 +81,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             </a>
           </li>
 
-          <li class="w-20">
+          <li class="w-20 flex flex-col items-center">
             <a
               href="/nosotros"
               :class="active.includes('/nosotros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
@@ -87,7 +90,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             </a>
           </li>
 
-          <li class="w-20">
+          <li class="w-20 flex flex-col items-center">
             <a
               href="/contacto"
               :class="active.includes('/contacto') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
@@ -99,8 +102,6 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
       </nav>
     </div>
   </div>
+
+  <!-- class="py-1.5 px-4 border focus:ring-2 h-8 rounded-full border-transparent bg-black hover:bg-black/10 text-white duration-200 focus:ring-offset-2 focus:ring-white hover:text-black inline-flex items-center justify-center ring-1 ring-transparent lg:ml-auto" -->
 </div>
-
-
-
-<!-- class="py-1.5 px-4 border focus:ring-2 h-8 rounded-full border-transparent bg-black hover:bg-black/10 text-white duration-200 focus:ring-offset-2 focus:ring-white hover:text-black inline-flex items-center justify-center ring-1 ring-transparent lg:ml-auto" -->
