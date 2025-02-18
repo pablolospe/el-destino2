@@ -1,19 +1,21 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import EmailCopy from "@/components/EmailCopy.astro";
+import EmailCopy from "@/components/contacto/EmailCopy.astro";
+import PhoneCopy from "@/components/contacto/PhoneCopy.astro";
 import Footer from "@/components/global/Footer.astro";
-import PhoneCopy from "@/components/PhoneCopy.astro";
 ---
 
 <BaseLayout>
     <section
-        class="w-full flex flex-1 justify-center items-center mx-4 md:mx-60 text-lg font-light text-left"
+        class="w-full flex flex-1 justify-center items-center mx-4 text-lg font-light text-left"
     >
         <div class="w-fit flex flex-col gap-1">
             <EmailCopy />
             <PhoneCopy />
-
-            <p class="ml-4 p-1">Ciudad de Buenos Aires, República Argentina</p>
+            <div class="flex items-start sm:items-center w-fit space-x-2 group px-4 py-2 gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-map-pin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" /></svg>
+                <p >Ciudad de Buenos Aires, República Argentina</p>
+            </div>
         </div>
     </section>
     <Footer />
