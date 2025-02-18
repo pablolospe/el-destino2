@@ -9,7 +9,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
   title={frontmatter.title}
-  description="Your site description goes here"
+  description={frontmatter.description}
   canonical="https://www.lexingtonthemes.com"
   openGraph={{
     url: "https://www.lexingtonthemes.com",
@@ -33,7 +33,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
       { url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg" },
       { url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg" },
     ],
-    site_name: "YourSitesName",
+    site_name: "www.el-destino.com",
   }}
   twitter={{
     handle: "@TwitterHandle",
@@ -57,8 +57,6 @@ Use AstroSeo in all the pages you want different Seo than the index page
         de {frontmatter.author}
       </h2>
 
-      
-
       <section class="mt-12">
         <article
           class="grid grid-cols-1 md:grid-cols-5 justify-start md:gap-16"
@@ -66,7 +64,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
           <div class="w-full col-span-2">
             <img
               transition:name={`portada${frontmatter.image.url}`}
-              class="w-full"
+              class="w-full shadow-2xl shadow-gray-500"
               src={frontmatter.image.url}
               alt={frontmatter.image.alt}
             />
@@ -107,16 +105,18 @@ Use AstroSeo in all the pages you want different Seo than the index page
         <br />
 
         <!-- A U T O R -->
-        <article class="grid grid-cols-1 md:grid-cols-5 md:gap-16 ">
+        <article class="grid grid-cols-1 md:grid-cols-5 md:gap-16">
           <div class="w-full col-span-2">
             <img
-              class="w-full"
+              class="w-full shadow-2xl shadow-gray-500"
               src={frontmatter.portrait.url}
               alt={frontmatter.portrait.alt}
             />
           </div>
 
-          <p class="w-full text-left col-span-3 text-lg lg:text-xl font-light mt-4 md:mt-0">
+          <p
+            class="w-full text-left col-span-3 text-lg lg:text-xl font-light mt-4 md:mt-0"
+          >
             {frontmatter.bio}
           </p>
         </article>
@@ -128,4 +128,5 @@ Use AstroSeo in all the pages you want different Seo than the index page
       </div>
     </div>
   </div>
+  <br>
 </BaseLayout>
