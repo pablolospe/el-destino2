@@ -47,16 +47,32 @@ Use AstroSeo in all the pages you want different Seo than the index page
   <div class="px-8 py-8 md:px-12 mx-auto max-w-7xl lg:px-52">
     <div class="text-center">
       <h1
-        class="text-4xl tracking-tight text-balance font-medium font-display text-black md:text-3xl"
+      class="text-4xl tracking-tight text-balance font-medium font-display text-black md:text-3xl"
       >
-        {frontmatter.title}
-      </h1>
-
-      <h2
-        class="text-4xl tracking-tight text-balance font-medium font-display text-black md:text-2xl"
-      >
-        de {frontmatter.author}
-      </h2>
+      {frontmatter.title}
+    </h1>
+    
+    <h2
+    class="text-4xl tracking-tight text-balance font-medium font-display text-black md:text-2xl"
+    >
+    de {frontmatter.author}
+  </h2>
+  
+  <button
+    class="relative top-2 bg-gray-50 hover:bg-gray-100 text-gray-700 font-bold py-2 px-3 rounded inline-flex items-center cursor-pointer"
+    onclick="history.back()"
+  >
+    <svg
+      class="fill-current w-4 h-4 mr-2"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M10 3.414l-6.293 6.293a1 1 0 0 0 0 1.414l6.293 6.293a1 1 0 0 0 1.414-1.414L6.414 11H19a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H6.414l4.999-4.999a1 1 0 0 0-1.414-1.414z"
+      ></path>
+    </svg>
+    
+  </button>
 
       <section class="mt-12">
         <article
