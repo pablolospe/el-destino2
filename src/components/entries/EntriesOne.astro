@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const { title, url, description, pubDate, author, image, tags } = Astro.props;
 ---
 
@@ -7,9 +9,11 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
     <article class="flex-1 h-full flex flex-col">
       <div class="block w-full lg:col-span-2">
         <!-- class="aspect-[2/3] object-cover bg-center h-full w-full" -->
-        <img
+        <Image
           transition:name={`portada${image}`}
           class="object-cover bg-center h-full w-full shadow-2xl shadow-gray-500"
+          height={200}
+          width={400}
           src={image}
           alt={title}
         />
