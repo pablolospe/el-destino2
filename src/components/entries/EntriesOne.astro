@@ -12,8 +12,8 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
         <Image
           transition:name={`portada${image}`}
           class="object-cover bg-center h-full w-full shadow-2xl shadow-gray-500"
-          height={200}
-          width={400}
+          height={400}
+          width={200}
           src={image}
           alt={title}
         />
