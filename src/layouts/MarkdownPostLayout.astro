@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+import arrow from "public/images/arrow_direction_left_back_icon.svg"; // O desde 'public/images'
 import { AstroSeo } from "@astrolib/seo";
 ---
 
@@ -47,16 +48,10 @@ Use AstroSeo in all the pages you want different Seo than the index page
   <div class="px-8 py-8 md:px-12 mx-auto max-w-7xl lg:px-52">
     <div class="text-center">
       <div class="flex flex-row justify-center">
-        <button class="relative left-0 cursor-pointer" onclick="history.back()">
-          <svg
-            class="fill-current w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M10 3.414l-6.293 6.293a1 1 0 0 0 0 1.414l6.293 6.293a1 1 0 0 0 1.414-1.414L6.414 11H19a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H6.414l4.999-4.999a1 1 0 0 0-1.414-1.414z"
-            ></path>
-          </svg>
+
+        <!-- B A C K   A R R O W -->
+        <button class="relative top-4 right-0 cursor-pointer" onclick="history.back()">
+          <Image src={arrow} alt="Arrow back" width={35} height={35}>
         </button>
         <h1
           class="text-2xl md:text-3xl w-full tracking-tight text-balance font-medium font-display text-black "
