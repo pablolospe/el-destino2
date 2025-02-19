@@ -1,8 +1,12 @@
+---
+import Creditos from "./Creditos.astro";
+---
+
 <footer class="bg-stone-100 border-t border-zinc-200 mt-auto w-full">
   <div
-    class="flex flex-col-reverse md:flex-row px-8 lg:px-12 mx-auto py-6 xl:px-20 gap-6 justify-evenly items-center"
+    class="flex flex-col-reverse lg:flex-row px-8 lg:px-12 mx-auto py-6 xl:px-20 gap-4 justify-between items-center"
   >
-    <section class="gap-y-6 gap-x-8">
+    <section class="flex flex-row justify-between items-end gap-20">
       <div class="flex flex-col">
         <div class="flex justify-start gap-4 mb-2">
           <a
@@ -55,59 +59,26 @@
         <ul class="text-sm text-zinc-600 lg:col-span-2">
           <li><b>El Destino Ediciones</b></li>
           <li>eldestinoediciones@gmail.com</li>
-          <li>Ciudad de Buenos Aires, República Argentina</li>
+          <li>Ciudad de Buenos Aires,</li>
+          <li>República Argentina</li>
           <li x-data="{ year: new Date().getFullYear() }">
             © <span x-text="year"></span> El Destino Ediciones
           </li>
         </ul>
       </div>
-    </section>
 
-    <!-- C R E D I T O S -->
-    <section class="hidden lg:block text-sm text-zinc-600 lg:col-span-2">
-      <h4><b>Créditos</b></h4>
-      <div class="grid grid-cols-2 mt-2 px-4 gap-4">
-
-        <div class="flex flex-col gap-3">
-          <div>
-            <p>Sitio web:</p>
-            <a 
-            href="https://pol-folio-en.vercel.app/"
-            target="_blank"
-            class="cursor-pointer hover:text-black whitespace-nowrap">Pablo Lospe</a>
-          </div>
-          
-          <div>
-            <p>Logos:</p>
-            <a 
-            href="https://florlorea.com"
-            target="_blank"
-            class="cursor-pointer hover:text-black whitespace-nowrap">Florencia Lorea</a>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-3">
-          <div>
-            <p>Fotografías:</p>
-            <a 
-            href="http://www.valeriasigal.com"
-            target="_blank"
-            class="cursor-pointer hover:text-black whitespace-nowrap">Valeria Sigal</a>
-          </div>
-          
-          <div>
-            <p>Diseño:</p>
-            <a 
-            href="malvinachacon@gmail.com"
-            target="_blank"
-            class="cursor-pointer hover:text-black whitespace-nowrap">Malvina Chacón</a>
-          </div>
-        </div>
+      <div class="hidden sm:block lg:hidden">
+        <Creditos />
       </div>
     </section>
 
+    <section class="hidden lg:block h-full">
+      <Creditos />
+    </section>
+
+
     <section class="flex flex-col gap-4 justify-start items-center py-4">
-      <form id="emailForm" class="w-full max-w-lg">
+      <form id="emailForm" class=" max-w-lg">
         <div class="flex gap-2 items-center h-10">
           <input
             id="subscriptionEmail"
