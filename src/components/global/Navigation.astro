@@ -37,14 +37,14 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
       </button>
     </div>
 
-    <div class="w-full md:mx-10 lg:mx20 xl:mx-40">
+    <div class="w-full md:mx-8 lg:mx-20 ">
       <nav
         :class="{'flex': open, 'hidden': !open}"
         class="w-full hidden md:flex"
         x-data="{ active: window.location.pathname }"
       >
         <ul
-          class="flex flex-col md:flex-row w-full space-y-2 list-none md:space-y-0 items-center md:inline-flex justify-between text-center text-lg"
+          class="flex flex-col md:flex-row w-full space-y-2 list-none md:space-y-0 items-center md:inline-flex justify-between text-center text-lg mb-4 md:mb-0"
         >
           <li class="w-24">
             <a class="hidden md:block" href="/">
@@ -52,7 +52,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             </a>
           </li>
 
-          <li class="w-20 xl:w-40 flex"></li>
+          <li class="w-0 lg:w-20 xl:w-40 flex"></li>
 
           <li class="w-20 flex flex-col items-center">
             <a
@@ -105,6 +105,16 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
               :class="active.includes('/contacto') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
             >
               Contacto
+            </a>
+          </li>
+
+          <li class="w-20 flex flex-col items-center">
+            <a
+              href="https://titolectura.empretienda.com.ar"
+              target="_blank"
+              class="text-sm rounded px-3 py-2 ml-0 md:ml-4 bg-[#ecfd83] hover:bg-amber-200 hover:transition ease-in-out duration-600 text-black"
+            >
+              Tienda
             </a>
           </li>
         </ul>
