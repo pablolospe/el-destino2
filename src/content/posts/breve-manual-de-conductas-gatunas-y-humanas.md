@@ -17,4 +17,5 @@ portrait:
   url: "/images/breve_mockup_sofi_foto.png"
   alt: "Sofía Ansaldo portrait"
 tags: ["Sofía Ansaldo", "Breve manual de conductas gatunas & humanas"]
+tienda: "https://titolectura.empretienda.com.ar/general/breve-manual-de-conductas-gatunas-y-humanas-sofia-ansaldo"
 ---
