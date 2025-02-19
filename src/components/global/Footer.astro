@@ -1,6 +1,6 @@
 <footer class="bg-stone-100 border-t border-zinc-200 mt-auto w-full">
   <div
-    class="flex flex-col-reverse md:flex-row px-8 lg:px-12 mx-auto py-6 xl:px-20 gap-8 justify-evenly items-center"
+    class="flex flex-col-reverse md:flex-row px-8 lg:px-12 mx-auto py-6 xl:px-20 gap-6 justify-evenly items-center"
   >
     <section class="gap-y-6 gap-x-8">
       <div class="flex flex-col">
@@ -63,33 +63,48 @@
       </div>
     </section>
 
-    <!-- <section class="w-full h-full">
-      <details >
-        <summary>Créditos </summary>
-        <div class="text-xs grid grid-cols-2 mt-2 px-8 gap-4">
+    <!-- C R E D I T O S -->
+    <section class="hidden lg:block text-sm text-zinc-600 lg:col-span-2">
+      <h4><b>Créditos</b></h4>
+      <div class="grid grid-cols-2 mt-2 px-4 gap-4">
+
+        <div class="flex flex-col gap-3">
           <div>
-            <div>
-              <p>Sitio web:</p><a class="cursor-pointer">Pablo Lospe</a>
-            </div>
-            <br />
-            <div>
-              <p>Logos:</p>
-              <a class="cursor-pointer">Florencia Lorea</a>
-            </div>
+            <p>Sitio web:</p>
+            <a 
+            href="https://pol-folio-en.vercel.app/"
+            target="_blank"
+            class="cursor-pointer hover:text-black whitespace-nowrap">Pablo Lospe</a>
           </div>
+          
           <div>
-            <div>
-              <p>Fotografías:</p><a class="cursor-pointer">Valeria Sigal</a>
-            </div>
-            <br />
-            <div>
-              <p>Diseño:</p>
-              <a class="cursor-pointer">Malvina Chacón</a>
-            </div>
+            <p>Logos:</p>
+            <a 
+            href="https://florlorea.com"
+            target="_blank"
+            class="cursor-pointer hover:text-black whitespace-nowrap">Florencia Lorea</a>
           </div>
         </div>
-      </details>
-    </section> -->
+
+        <div class="flex flex-col gap-3">
+          <div>
+            <p>Fotografías:</p>
+            <a 
+            href="http://www.valeriasigal.com"
+            target="_blank"
+            class="cursor-pointer hover:text-black whitespace-nowrap">Valeria Sigal</a>
+          </div>
+          
+          <div>
+            <p>Diseño:</p>
+            <a 
+            href="malvinachacon@gmail.com"
+            target="_blank"
+            class="cursor-pointer hover:text-black whitespace-nowrap">Malvina Chacón</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="flex flex-col gap-4 justify-start items-center py-4">
       <form id="emailForm" class="w-full max-w-lg">
@@ -97,7 +112,7 @@
           <input
             id="subscriptionEmail"
             name="subscriptionEmail"
-            class="w-[17rem] h-full text-xs px-4 py-2 border border-gray-300"
+            class="w-[16rem] h-full text-[0.7rem] px-4 py-2 border border-gray-300"
             placeholder="Para suscribirte, por favor, dejanos tu mail."
             type="email"
             required
