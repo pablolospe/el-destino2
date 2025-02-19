@@ -11,7 +11,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
     <div class="flex flex-row items-center justify-end md:justify-start">
       <button
         @click="open = !open"
-        class="inline-flex items-center justify-center p-2 text-black hover:text-gray-600 focus:outline-none focus:text-black md:hidden"
+        class="inline-flex items-center justify-center p-6 text-black hover:text-gray-600 focus:outline-none focus:text-black md:hidden"
       >
         <svg
           class="w-6 h-6"
@@ -87,6 +87,15 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
               :class="active.includes('/nosotros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
             >
               Nosotros
+            </a>
+          </li>
+
+          <li class="sm:hidden w-20 flex flex-col items-center">
+            <a
+              href="/creditos"
+              :class="active.includes('/creditos') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+            >
+              Créditos
             </a>
           </li>
 

@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Footer from "@/components/global/Footer.astro";
+import CreditosComponent from "@/components/global/CreditosComponent.astro";
+---
+
+<BaseLayout>
+    <section
+        class="w-full flex flex-1 justify-center items-center text-lg font-light text-left"
+    >
+        <div class="w-fit flex flex-col gap-1">
+           
+            <div class="flex items-start sm:items-center w-fit space-x-2 group px-4 py-2 gap-2">
+              <CreditosComponent/>
+            </div>
+        </div>
+    </section>
+    <Footer />
+</BaseLayout>
