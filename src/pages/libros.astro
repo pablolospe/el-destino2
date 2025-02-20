@@ -15,10 +15,11 @@ const sortedPosts = allPosts.sort(
 ---
 
 <BaseLayout>
-  <br />
-  <section class="h-full mx-4 lg:my-20">
+  
+  <div class=" flex flex-col lg:flex-1  ">
+    
     <ul
-      class="grid grid-cols-1 mb-8 gap-y-8 lg:grid-cols-2 sm:mx-20 sm:gap-20 lg:mx-40 lg:gap-40 sm:grid-cols-2 items-center"
+      class="flex-1 grid grid-cols-1 sm:grid-cols-2 py-4 h-full gap-8 md:gap-20 lg:gap-40 items-center justify-around mx-4 md:mx-auto"
     >
       {
         sortedPosts.map((post) => (
@@ -35,6 +36,6 @@ const sortedPosts = allPosts.sort(
         ))
       }
     </ul>
-  </section>
-  <Footer />
+    <Footer />
+  </div>
 </BaseLayout>
