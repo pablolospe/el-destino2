@@ -7,25 +7,25 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
 <li>
   <a href={url} title={title} class="group">
     <article class="h-full flex justify-center items-center">
-      
-        <Image
-          transition:name={`portada${image}`}
-          class="block sm:hidden object-cover bg-center h-full w-full shadow-xl shadow-gray-400"
-          height={400}
-          width={200}
-          src={image}
-          alt={title}
-        />
-        
-        <Image
-          transition:name={`portada${image}`}
-          class="hidden sm:block object-cover bg-center h-full shadow-xl shadow-gray-400"
-          height={400}
-          width={200}
-          src={image}
-          alt={title}
-        />
-      
+      <Image
+        transition:name={`portada${image}`}
+        class="block sm:hidden object-cover bg-center h-full w-full shadow-xl shadow-gray-400"
+        height={400}
+        width={200}
+        src={image}
+        alt={title}
+        loading="eager"
+      />
+
+      <Image
+        transition:name={`portada${image}`}
+        class="hidden sm:block object-cover bg-center h-full shadow-xl shadow-gray-400"
+        height={400}
+        width={200}
+        src={image}
+        alt={title}
+        loading="eager"
+      />
     </article>
   </a>
 </li>
