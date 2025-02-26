@@ -7,6 +7,7 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
 <li>
   <a href={url} title={title} class="group">
     <article class="h-full flex justify-center items-center">
+      <!-- I M G  M O B I L E -->
       <Image
         transition:name={`portada${image}`}
         class="block sm:hidden object-cover bg-center h-full w-full shadow-xl shadow-gray-400"
@@ -17,6 +18,7 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
         loading="eager"
       />
 
+      <!-- I M G  N O T  M O B I L E -->
       <Image
         transition:name={`portada${image}`}
         class="hidden sm:block object-cover bg-center h-full shadow-xl shadow-gray-400"
