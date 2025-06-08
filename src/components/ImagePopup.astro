@@ -1,0 +1,213 @@
+---
+// NOTA IMPORTANTE: Asegúrate de que el nombre del archivo sea 'ImagePopup.astro' (TODO en minúsculas).
+// El error de build '[vite:build-import-analysis] ... ImagePopup.Astro' casi seguro apunta a la mayúscula.
+
+export interface Props {
+  imageSrc: string;
+  imageAlt?: string;
+  className?: string;
+  // showOnLoad prop eliminada (comportamiento manejado por JS y localStorage)
+}
+
+const {
+  imageSrc,
+  imageAlt = "Popup image",
+  className = ""
+} = Astro.props;
+---
+
+<!--
+  El div principal no tiene 'show' por defecto.
+  El JS comprobará localStorage y añadirá 'show' si no se ha cerrado antes.
+-->
+<div id="image-popup" class={`popup-overlay ${className}`}>
+  <div class="popup-container">
+    <button class="close-button" id="close-popup" aria-label="Cerrar popup">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="popup-content">
+      <img src={imageSrc} alt={imageAlt} class="popup-image" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Estado inicial: oculto */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* Este selector es clave para mostrarlo con JS */
+  .popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .popup-container {
+    position: relative;
+    max-width: 90vw;
+    /* Altura del contenedor ya no está limitada por calc(90vh - 40px) */
+    /* La altura se adaptará al contenido (la imagen con su max-height) + padding */
+    /* Eliminamos overflow-y: auto */
+    background: white;
+    border-radius: 12px;
+    padding: 20px; /* Mantén el padding original */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8); /* Estado inicial para la animación */
+    transition: transform 0.3s ease;
+  }
+
+
+  .close-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff4757;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1;
+  }
+
+  .close-button:hover {
+    background: #ff3742;
+    transform: scale(1.1);
+  }
+
+  .close-button:active {
+    transform: scale(0.95);
+  }
+
+  .popup-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup-image {
+    max-width: 100%;
+    /* Vuelve a limitar la altura máxima de la imagen a 80vh */
+    max-height: 80vh;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .popup-container {
+      padding: 15px; /* Mantén el padding de mobile */
+      margin: 20px;
+      /* Altura del contenedor en mobile ya no limitada por calc(...) */
+    }
+
+    .popup-image {
+      /* Vuelve a limitar la altura máxima de la imagen a 70vh en mobile */
+      max-height: 70vh;
+    }
+
+    .close-button {
+      width: 35px;
+      height: 35px;
+      top: -8px;
+      right: -8px;
+    }
+  }
+
+  /* Animación de entrada suave */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .popup-overlay.show .popup-container {
+     /* Aplica la animación cuando el overlay tiene la clase 'show' */
+    animation: fadeIn 0.3s ease forwards;
+  }
+</style>
+
+<script is:inline>
+  // Script para manejar la visibilidad basada en localStorage y el cierre.
+  document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('image-popup');
+    const closeButton = document.getElementById('close-popup');
+    const localStorageKey = 'imagePopupClosed'; // Clave única para localStorage
+
+    // Asegúrate de que el elemento principal del popup existe
+    if (!popup) {
+        console.error("Popup element with ID 'image-popup' not found!");
+        return; // Salir si el popup principal no se encuentra
+    }
+
+    // Comprobar si el popup ya fue cerrado anteriormente
+    const wasClosed = localStorage.getItem(localStorageKey) === 'true';
+
+    // Si NO fue cerrado antes, mostrarlo añadiendo la clase 'show'
+    if (!wasClosed) {
+        // Usar un pequeño timeout para asegurar que la transición CSS funcione
+        setTimeout(() => {
+            popup.classList.add('show');
+        }, 10); // 10ms es suficiente
+    }
+
+    // Configurar los escuchadores de eventos SI el botón de cierre existe
+    if (closeButton) {
+      // Función para cerrar el popup Y guardar la preferencia en localStorage
+      const closePopup = () => {
+        popup.classList.remove('show'); // Ocultar visualmente
+        localStorage.setItem(localStorageKey, 'true'); // Marcar como cerrado en localStorage
+        // console.log('Popup cerrado y preferencia guardada.'); // Opcional: para depuración
+      };
+
+      // Cerrar con el botón X
+      closeButton.addEventListener('click', closePopup);
+
+      // Cerrar haciendo clic fuera del contenido del popup (en el fondo oscuro)
+      popup.addEventListener('click', (e) => {
+        // Verifica si el clic fue DIRECTAMENTE en el div del overlay, no en ningún elemento hijo
+        if (e.target === popup) {
+          closePopup();
+        }
+      });
+
+      // Cerrar con la tecla Escape
+      document.addEventListener('keydown', (e) => {
+        // Solo intentar cerrar si el popup está actualmente visible
+        if (e.key === 'Escape' && popup.classList.contains('show')) {
+          closePopup();
+        }
+      });
+
+    } else {
+        console.warn("Close button with ID 'close-popup' not found for the popup."); // Advertencia si el botón no se encuentra
+    }
+  });
+</script>

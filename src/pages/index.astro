@@ -2,10 +2,13 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import EntriesOne from "@/components/entries/EntriesOne.astro";
+import ImagePopup from "@/components/ImagePopup.astro";
 const allPosts = await getCollection("posts");
 import Hero from "@/components/landing/Hero.astro";
 import Footer from "@/components/global/Footer.astro";
+import { Image } from "astro:assets";
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+import presentacion from "public/images/presentacion-libro.jpeg";
 
 // Sort posts by date in descending order (newest first)
 const sortedPosts = allPosts.sort(
@@ -16,6 +19,20 @@ const sortedPosts = allPosts.sort(
 
 <BaseLayout>
   <Hero />
+
+  <ImagePopup
+    imageSrc="public/images/presentacion-libro.jpeg"
+    imageAlt="Presentacion del librosd v"
+  />
+  <Image
+    class="mx-auto px-4 md:p-0 h-md w-md border-gray-200 border-6 rounded-2xl hover:opacity-100 opacity-70 transition-opacity delay-100"
+    height={800}
+    width={800}
+    src={presentacion}
+    alt=""
+    loading="eager"
+  />
+
   <section>
     <div class="px-8 md:px-12 mx-auto max-w-7xl py-4 lg:px-8">
       <ul
