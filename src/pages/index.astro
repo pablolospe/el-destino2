@@ -8,7 +8,7 @@ import Hero from "@/components/landing/Hero.astro";
 import Footer from "@/components/global/Footer.astro";
 import { Image } from "astro:assets";
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-import presentacion from "public/images/presentacion-libro.jpeg";
+import presentacion from "public/images/presentacion-libro.jpg";
 
 // Sort posts by date in descending order (newest first)
 const sortedPosts = allPosts.sort(
@@ -21,7 +21,7 @@ const sortedPosts = allPosts.sort(
   <Hero />
 
   <ImagePopup
-    imageSrc="public/images/presentacion-libro.jpeg"
+    imageSrc="public/images/presentacion-libro.jpg"
     imageAlt="Presentacion del librosd v"
   />
   <Image
