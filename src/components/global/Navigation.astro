@@ -39,8 +39,8 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
 
     <div class="w-full md:mx-8 lg:mx-20 ">
       <nav
-        :class="{'flex': open, 'hidden': !open}"
-        class="w-full hidden md:flex"
+        :class="open ? 'max-h-screen' : 'max-h-0'"
+        class="w-full overflow-hidden transition-all duration-700 ease-in-out md:flex md:max-h-full md:overflow-visible"
         x-data="{ active: window.location.pathname }"
       >
         <ul
