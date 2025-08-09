@@ -44,7 +44,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
         x-data="{ active: window.location.pathname }"
       >
         <ul
-          class="flex flex-col md:flex-row w-full space-y-2 list-none md:space-y-0 items-center md:inline-flex justify-between text-center text-md mb-4 md:mb-0"
+          class="flex flex-col md:flex-row w-full space-y-2 list-none md:space-y-0 items-center md:justify-between text-center text-md mb-4 md:mb-0"
         >
           <li class="w-24">
             <a class="hidden md:block" href="/">
@@ -52,63 +52,63 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             </a>
           </li>
 
-          <li class="w-0 lg:w-20 xl:w-40 flex"></li>
+          <div class="md:flex md:mx-auto md:gap-x-4">
+            <li class="flex flex-col items-center md:px-2">
+              <a
+                href="/"
+                :class="active === '/' ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+              >
+                Inicio
+              </a>
+            </li>
 
-          <li class="w-20 flex flex-col items-center">
-            <a
-              href="/"
-              :class="active === '/' ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
-            >
-              Inicio
-            </a>
-          </li>
+            <li class="flex flex-col items-center md:px-2">
+              <a
+                href="/libros"
+                :class="active.includes('/libros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+              >
+                Libros
+              </a>
+            </li>
 
-          <li class="w-20 flex flex-col items-center">
-            <a
-              href="/libros"
-              :class="active.includes('/libros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
-            >
-              Libros
-            </a>
-          </li>
+            <li class="flex flex-col items-center md:px-2">
+              <a
+                href="/librerias"
+                :class="active.includes('/librerias') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+              >
+                Librerías
+              </a>
+            </li>
 
-          <li class="w-20 flex flex-col items-center">
-            <a
-              href="/librerias"
-              :class="active.includes('/librerias') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
-            >
-              Librerías
-            </a>
-          </li>
+            <li class="flex flex-col items-center md:px-2">
+              <a
+                href="/nosotros"
+                :class="active.includes('/nosotros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+              >
+                Nosotros
+              </a>
+            </li>
 
-          <li class="w-20 flex flex-col items-center">
-            <a
-              href="/nosotros"
-              :class="active.includes('/nosotros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
-            >
-              Nosotros
-            </a>
-          </li>
+            <li class="sm:hidden flex flex-col items-center md:px-2">
+              <a
+                href="/creditos"
+                :class="active.includes('/creditos') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+              >
+                Créditos
+              </a>
+            </li>
 
-          <li class="sm:hidden w-20 flex flex-col items-center">
-            <a
-              href="/creditos"
-              :class="active.includes('/creditos') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
-            >
-              Créditos
-            </a>
-          </li>
+            <li class="flex flex-col items-center md:px-2">
+              <a
+                href="/contacto"
+                :class="active.includes('/contacto') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+              >
+                Contacto
+              </a>
+            </li>
+          </div>
 
-          <li class="w-20 flex flex-col items-center">
-            <a
-              href="/contacto"
-              :class="active.includes('/contacto') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
-            >
-              Contacto
-            </a>
-          </li>
-
-          <li class="w-20 flex flex-col items-center">
+          <li class="flex flex-col items-center md:px-2">
             <a
               href="https://titolectura.empretienda.com.ar"
               target="_blank"
