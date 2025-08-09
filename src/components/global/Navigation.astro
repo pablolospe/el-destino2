@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'public/images'
 ---
 
-<div class="border-b w-full border-zinc-200">
+<div class="border-b w-full border-zinc-200 bg-stone-100">
   <div
     x-data="{ open: false }"
     class="relative flex flex-col w-full mx-auto md:items-center md:justify-between md:flex-row"
@@ -112,7 +112,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             <a
               href="https://titolectura.empretienda.com.ar"
               target="_blank"
-              class="text-sm rounded px-3 py-2 ml-0 md:ml-4 bg-[#ecfd83] hover:bg-[#c0e360] hover:transition ease-in-out duration-600 text-black"
+              class="text-sm rounded-full px-3 py-2 ml-0 md:ml-4 bg-[#ecfd83] hover:bg-black hover:text-[#ecfd83] hover:transition ease-in-out duration-300 text-black ring-2"
             >
               Tienda
             </a>
