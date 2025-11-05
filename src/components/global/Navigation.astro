@@ -37,18 +37,24 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
       </button>
     </div>
 
-    <div class="w-full md:mx-8 lg:mx-20 ">
+    <div class="w-full md:mx-8 lg:mx-20">
       <nav
         :class="open ? 'max-h-screen' : 'max-h-0'"
         class="w-full overflow-hidden transition-all duration-700 ease-in-out md:flex md:max-h-full md:overflow-visible"
         x-data="{ active: window.location.pathname }"
       >
         <ul
-          class="flex flex-col md:flex-row w-full space-y-2 list-none md:space-y-0 items-center md:justify-between text-center text-md mb-4 md:mb-0"
+          class="flex flex-col md:flex-row w-full space-y-2 list-none md:space-y-0 items-center md:justify-between text-center text-sm mb-4 md:mb-0"
         >
           <li class="w-24">
             <a class="hidden md:block" href="/">
-              <Image src={imageSrc} alt="asd" width="100" height="100" loading="eager" />
+              <Image
+                src={imageSrc}
+                alt="asd"
+                width="100"
+                height="100"
+                loading="eager"
+              />
             </a>
           </li>
 
@@ -56,7 +62,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             <li class="flex flex-col items-center md:px-2">
               <a
                 href="/"
-                :class="active === '/' ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+                :class="active === '/' ? 'rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
               >
                 Inicio
               </a>
@@ -65,7 +71,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             <li class="flex flex-col items-center md:px-2">
               <a
                 href="/libros"
-                :class="active.includes('/libros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+                :class="active.includes('/libros') ? 'rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
               >
                 Libros
               </a>
@@ -74,7 +80,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             <li class="flex flex-col items-center md:px-2">
               <a
                 href="/librerias"
-                :class="active.includes('/librerias') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+                :class="active.includes('/librerias') ? 'rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
               >
                 Librerías
               </a>
@@ -83,7 +89,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             <li class="flex flex-col items-center md:px-2">
               <a
                 href="/nosotros"
-                :class="active.includes('/nosotros') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+                :class="active.includes('/nosotros') ? 'rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
               >
                 Nosotros
               </a>
@@ -92,7 +98,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             <li class="sm:hidden flex flex-col items-center md:px-2">
               <a
                 href="/creditos"
-                :class="active.includes('/creditos') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+                :class="active.includes('/creditos') ? 'rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
               >
                 Créditos
               </a>
@@ -101,14 +107,24 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             <li class="flex flex-col items-center md:px-2">
               <a
                 href="/contacto"
-                :class="active.includes('/contacto') ? 'border-black rounded-full px-3 py-2 bg-gray-900 text-white' : 'text-black hover:text-gray-600 px-3 py-2'"
+                :class="active.includes('/contacto') ? 'rounded-full px-3 py-2 bg-gray-900 text-white mb-2 md:mb-0' : 'text-black hover:text-gray-600 px-3 py-2'"
               >
                 Contacto
               </a>
             </li>
+
+            <li class="flex flex-col items-center md:px-2">
+              <a
+                href="https://titolectura.empretienda.com.ar"
+                target="_blank"
+                class="rounded-full px-3 py-2 bg-[#ecfd83] hover:bg-black hover:text-[#ecfd83] hover:transition ease-in-out duration-300 ring-1 fotn-bold"
+              >
+                ¡Tienda!
+              </a>
+            </li>
           </div>
 
-          <li class="flex flex-col items-center md:px-2">
+          <!-- <li class="flex flex-col items-center md:px-2">
             <a
               href="https://titolectura.empretienda.com.ar"
               target="_blank"
@@ -116,7 +132,7 @@ import imageSrc from "public/favicons/android-chrome-512x512.png"; // O desde 'p
             >
               Tienda
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </div>
