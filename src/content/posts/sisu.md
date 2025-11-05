@@ -1,7 +1,7 @@
 ---
 pubDate: 2025-10-01
 author: Noelia Truffa
-bio: "Noelia Truffa nació en 1986 en Buenos Aires, donde creció, estudió (Arquitectura, Universidad de Buenos Aires), trabajó y residió durante treinta y dos años. Es autora de Escribiendo por el mundo, relatos de vida nómada, su primer libro. En 2021 Noe se instaló en Finlandia, donde reside en la actualidad."
+bio: "Noelia Truffa nació en 1986 en Buenos Aires, donde creció, estudió (Arquitectura, Universidad de Buenos Aires), trabajó y residió durante treinta y dos años. Es autora de <em>Escribiendo por el mundo, relatos de vida nómada </em>, su primer libro. En 2021 Noe se instaló en Finlandia, donde reside en la actualidad."
 title: Sisu, diario de una argentina en Finlandia
 type: "Diario"
 pages: "352"
@@ -19,4 +19,4 @@ tienda: "https://titolectura.empretienda.com.ar/libros/preventa-sisu-diario-de-u
 ---
 
 
-Noelia Truffa nació en 1986 en Buenos Aires, donde creció, estudió (Arquitectura, Universidad de Buenos Aires), trabajó y residió durante treinta y dos años. Es autora de Escribiendo por el mundo, relatos de vida nómada, su primer libro. En 2021 Noe se instaló en Finlandia, donde reside en la actualidad.
+Noelia Truffa nació en 1986 en Buenos Aires, donde creció, estudió (Arquitectura, Universidad de Buenos Aires), trabajó y residió durante treinta y dos años. Es autora de <em>Escribiendo por el mundo, relatos de vida nómada</em>, su primer libro. En 2021 Noe se instaló en Finlandia, donde reside en la actualidad.

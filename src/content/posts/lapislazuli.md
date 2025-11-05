@@ -19,4 +19,4 @@ tienda: "https://titolectura.empretienda.com.ar/libros/lapislazuli-agustin-zalaz
 ---
 
 
-Agustín Zalazar nació en Río Gallegos en 1989. A los seis años quería ser mago, marinero y escritor, y cuando lo mandaban a dormir se quedaba leyendo con una linterna debajo de las sábanas. Es abogado. En 2023 publicó Los restos diurnos (Metrópolis). Esta es su segunda novela. Vive en Villa Crespo.
+Agustín Zalazar nació en Río Gallegos en 1989. A los seis años quería ser mago, marinero y escritor, y cuando lo mandaban a dormir se quedaba leyendo con una linterna debajo de las sábanas. Es abogado. En 2023 publicó <em>Los restos diurnos</em> (Metrópolis). Esta es su segunda novela. Vive en Villa Crespo.
