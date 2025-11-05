@@ -66,11 +66,18 @@ Use AstroSeo in all the pages you want different Seo than the index page
         <button class="absolute top-6 md:top-36 left-6 md:left-12 lg:left-28 cursor-pointer" onclick="history.back()">
           <Image src={arrow} alt="Arrow back" width={25} height={25}>
         </button>
+        <div>
         <h1
-          class="text-2xl md:text-3xl w-full tracking-tight text-balance font-medium font-display text-black "
+          class="text-3xl md:text-3xl w-full tracking-tight text-balance font-medium font-display text-black "
         >
           {frontmatter.title}
         </h1>
+        <h3
+          class="text-xl md:text-xl w-full tracking-tight text-balance font-medium font-display text-black mb-2"
+        >
+          {frontmatter.subtitle}
+        </h3>
+      </div>
       </div>
       <h2
         class="text-xl tracking-tight text-balance font-medium font-display text-black md:text-2xl"

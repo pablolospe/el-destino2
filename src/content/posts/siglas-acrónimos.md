@@ -2,7 +2,8 @@
 pubDate: 2025-10-01
 author: Gerardo A. Gallardo
 bio: "Gerardo Alfredo Gallardo nació en Comodoro Rivadavia, en 1949. Cursó la carrera de Derecho en la Universidad Nacional de La Plata, de la que se graduó en 1976. Como abogado especializado en materia de hidrocarburos, fue durante muchos años asesor legal de YPF S.A. y de la Secretaría de Energía de la Nación. Explora e investiga diversos asuntos de la lingüística, especialmente aquellos relacionados con los distintos modos de comunicación. Esta es la primera obra que publica el autor en esta materia."
-title: Siglas, acrónimos y retroacrónimos. Un estudio de los lenguajes abreviados como formas de la comunicación
+title: Siglas, acrónimos y retroacrónimos
+subtitle: Un estudio de los lenguajes abreviados como formas de la comunicación
 type: "Ensayo"
 pages: "252"
 size: "15 x 23 cm"
