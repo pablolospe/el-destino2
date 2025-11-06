@@ -3,6 +3,7 @@ import vercel from "@astrojs/vercel"; // Para Serverless Functions
 import tailwindcss from '@tailwindcss/vite';
 
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap"; // Added import
 
 import dotenv from 'dotenv'; // Importa dotenv
 dotenv.config(); // Carga las variables de entorno desde .env
@@ -26,5 +27,5 @@ export default defineConfig({
     drafts: true
   },
   site: 'https://www.eldestinoediciones.com.ar',
-  integrations: [mdx()]
+  integrations: [mdx(), sitemap()] // Added sitemap()
 });
