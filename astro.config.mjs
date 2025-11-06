@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import vercel from "@astrojs/vercel"; // Para Serverless Functions
 import tailwindcss from '@tailwindcss/vite';
 
-import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
 import dotenv from 'dotenv'; // Importa dotenv
@@ -26,6 +25,6 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://el-destino.vercel.app/',
-  integrations: [sitemap(), mdx()]
+  site: 'https://www.eldestinoediciones.com.ar',
+  integrations: [mdx()]
 });
