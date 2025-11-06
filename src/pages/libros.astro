@@ -16,18 +16,17 @@ const sortedPosts = allPosts.sort(
 
 <BaseLayout>
   
-  <section class="flex flex-col items-center justify-center my-10 gap-10">
-    <h1
-      transition:animate={fade({ duration: "1s" })}
-      class="text-2xl text-center tracking-widest font-bold font-display text-black"
-    >
-      Todos nuestros libros
-    </h1>
-
+  <section class="flex grow flex-col items-center justify-center ">
     
-    <div class="flex flex-1 px-8 md:px-12 mx-auto max-w-7xl py-4 lg:px-8 justify-center items-center">
+    <div class="flex flex-col flex-1 px-8 md:px-12 mx-auto max-w-7xl py-4 lg:px-8 h-full justify-center">
+      <h1
+        transition:animate={fade({ duration: "1s" })}
+        class="text-2xl text-center tracking-widest font-bold font-display text-black mb-16"
+      >
+        Todos nuestros libros
+      </h1>
       <ul
-        class="grid grid-cols-1 mb-8 gap-y-8 lg:grid-cols-5 sm:mx-10 sm:gap-20 sm:grid-cols-2 lg:mx-20 lg:gap-20 justify-center items-center"
+        class="grid grid-cols-1 mb-8 gap-y-8 lg:grid-cols-5 sm:mx-10 sm:gap-20 sm:grid-cols-2 lg:mx-20 lg:gap-20 justify-center items-center h-full"
       >
         {
           sortedPosts.map((post) => (
