@@ -5,8 +5,12 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
 ---
 
 <li class="flex flex-col h-full w-auto justify-center ">
-  <a href={url} title={title} class="h-full justify-center flex flex-col">
-
+  <a
+    href={url}
+    title={title}
+    aria-label={`Leer más sobre ${title}`}
+    class="h-full justify-center flex flex-col"
+  >
     <!-- I M G  N O T  M O B I L E -->
     <Image
       transition:name={`portada${image}`}
