@@ -9,10 +9,10 @@ size: "14 cm x 22 cm"
 bookbinding: "Encuadernación rústica"
 description: "Aunque intente ignorarlo, Irene está desapareciendo. Los sensores no la detectan, las palabras que escribe se borran, quiere agarrar una copa y su mano la atraviesa. El primero en notarlo es Lázuli, su pavo real. Pronto también lo perciben los demás animales de apoyo emocional que habitan su mundo: canguros, cebras, dragones de Komodo. Desaparecer es un efecto colateral muy poco común de la soledad profunda, y ella está incrédula. No porque parezca incurable, sino porque a Irene le encanta su soledad. ¿Cómo pudo volverse en su contra? Con el tiempo que se le termina, Irene busca dejar de desvanecerse sin renunciar a la soledad que elige"
 image:
-  url: "/images/lapislazuli_tapa.png"
+  url: "/images/tapas/lapislazuli_tapa.webp"
   alt: "Agustín Zalazar"
 portrait:
-  url: "/images/autor_agus.jpeg"
+  url: "/images/autores/autor_agus.webp"
   alt: "Agustín Zalazar portrait"
 tags: ["Agustín Zalazar", "Lapislázuli"]
 tienda: "https://titolectura.empretienda.com.ar/libros/lapislazuli-agustin-zalazar-preventa"
