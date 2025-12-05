@@ -16,7 +16,7 @@ portrait:
   url: "/images/autores/autor_gerardo.webp"
   alt: "Gerardo A. Gallardo portrait"
 tags: ["Gerardo A. Gallardo", "Lapislázuli"]
-tienda: "https://titolectura.empretienda.com.ar/libros/preventa-sar-gerardo-gallardo"
+tienda: "https://titolectura.empretienda.com.ar/libros/sar-siglas-acronimos-y-retroacronimos-gerardo-gallardo"
 ---
 
 
