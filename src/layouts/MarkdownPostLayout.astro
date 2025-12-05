@@ -4,6 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 import arrow from "public/images/arrow_direction_left_back_icon.svg"; // O desde 'public/images'
 import { AstroSeo } from "@astrolib/seo";
+import ImagePopup from "../components/ImagePopup.astro";
 
 const title = frontmatter.title;
 const description = frontmatter.description;
@@ -76,14 +77,16 @@ Use AstroSeo in all the pages you want different Seo than the index page
           class="grid grid-cols-1 md:grid-cols-5 justify-start md:gap-16"
         >
           <div class="w-full col-span-2">
-            <Image
-              transition:name={`portada${frontmatter.image.url}`}
-              class="w-full shadow-lg md:shadow-2xl shadow-gray-400"
-              height={200}
-              width={200}
-              src={frontmatter.image.url}
-              alt={frontmatter.image.alt}
-            />
+            <div class="cursor-pointer" onclick={`openImagePopup('${frontmatter.image.url}')`}>
+              <Image
+                transition:name={`portada${frontmatter.image.url}`}
+                class="w-full shadow-lg md:shadow-2xl shadow-gray-400"
+                height={200}
+                width={200}
+                src={frontmatter.image.url}
+                alt={frontmatter.image.alt}
+              />
+            </div>
           </div>
 
           <div class="w-full col-span-3 mt-10 md:mt-0">
@@ -132,13 +135,15 @@ Use AstroSeo in all the pages you want different Seo than the index page
         <!-- A U T O R -->
         <article class="grid grid-cols-1 md:grid-cols-5 md:gap-16">
           <div class="w-full col-span-2">
-            <Image
-              class="w-full shadow-lg md:shadow-2xl shadow-gray-400"
-              height={400}
-              width={200}
-              src={frontmatter.portrait.url}
-              alt={frontmatter.portrait.alt}
-            />
+            <div class="cursor-pointer" onclick={`openImagePopup('${frontmatter.portrait.url}')`}>
+              <Image
+                class="w-full shadow-lg md:shadow-2xl shadow-gray-400"
+                height={400}
+                width={200}
+                src={frontmatter.portrait.url}
+                alt={frontmatter.portrait.alt}
+              />
+            </div>
           </div>
 
           <div
@@ -157,4 +162,5 @@ Use AstroSeo in all the pages you want different Seo than the index page
     </div>
   </div>
   <br />
+  <ImagePopup />
 </BaseLayout>

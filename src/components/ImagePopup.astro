@@ -1,26 +1,11 @@
 ---
-// NOTA IMPORTANTE: Asegúrate de que el nombre del archivo sea 'ImagePopup.astro' (TODO en minúsculas).
-// El error de build '[vite:build-import-analysis] ... ImagePopup.Astro' casi seguro apunta a la mayúscula.
+// src/components/ImagePopup.astro
 
-export interface Props {
-  imageSrc: string;
-  imageAlt?: string;
-  className?: string;
-  // showOnLoad prop eliminada (comportamiento manejado por JS y localStorage)
-}
-
-const {
-  imageSrc,
-  imageAlt = "Popup image",
-  className = ""
-} = Astro.props;
+// No props son necesarias para el componente en sí, 
+// ya que la imagen se establecerá dinámicamente.
 ---
 
-<!--
-  El div principal no tiene 'show' por defecto.
-  El JS comprobará localStorage y añadirá 'show' si no se ha cerrado antes.
--->
-<div id="image-popup" class={`popup-overlay ${className}`}>
+<div id="image-popup" class="popup-overlay">
   <div class="popup-container">
     <button class="close-button" id="close-popup" aria-label="Cerrar popup">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +13,7 @@ const {
       </svg>
     </button>
     <div class="popup-content">
-      <img src={imageSrc} alt={imageAlt} class="popup-image" />
+      <img src="" alt="Imagen ampliada" class="popup-image" id="popup-image-content" />
     </div>
   </div>
 </div>
@@ -45,32 +30,26 @@ const {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    /* Estado inicial: oculto */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
-  /* Este selector es clave para mostrarlo con JS */
   .popup-overlay.show {
     opacity: 1;
     visibility: visible;
   }
-
+  
   .popup-container {
     position: relative;
     max-width: 90vw;
-    /* Altura del contenedor ya no está limitada por calc(90vh - 40px) */
-    /* La altura se adaptará al contenido (la imagen con su max-height) + padding */
-    /* Eliminamos overflow-y: auto */
     background: white;
     border-radius: 12px;
-    padding: 20px; /* Mantén el padding original */
+    padding: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    transform: scale(0.8); /* Estado inicial para la animación */
+    transform: scale(0.8);
     transition: transform 0.3s ease;
   }
-
 
   .close-button {
     position: absolute;
@@ -90,124 +69,97 @@ const {
     transition: all 0.2s ease;
     z-index: 1;
   }
-
+  
   .close-button:hover {
     background: #ff3742;
     transform: scale(1.1);
   }
 
-  .close-button:active {
-    transform: scale(0.95);
-  }
-
-  .popup-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .popup-image {
     max-width: 100%;
-    /* Vuelve a limitar la altura máxima de la imagen a 80vh */
     max-height: 80vh;
     height: auto;
     object-fit: contain;
     border-radius: 8px;
   }
-
-  /* Responsive */
+  
   @media (max-width: 768px) {
     .popup-container {
-      padding: 15px; /* Mantén el padding de mobile */
+      padding: 15px;
       margin: 20px;
-      /* Altura del contenedor en mobile ya no limitada por calc(...) */
     }
-
     .popup-image {
-      /* Vuelve a limitar la altura máxima de la imagen a 70vh en mobile */
       max-height: 70vh;
-    }
-
-    .close-button {
-      width: 35px;
-      height: 35px;
-      top: -8px;
-      right: -8px;
     }
   }
 
-  /* Animación de entrada suave */
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
   }
 
   .popup-overlay.show .popup-container {
-     /* Aplica la animación cuando el overlay tiene la clase 'show' */
     animation: fadeIn 0.3s ease forwards;
   }
 </style>
 
 <script is:inline>
-  // Script para manejar la visibilidad basada en localStorage y el cierre.
-  document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('image-popup');
-    const closeButton = document.getElementById('close-popup');
-    const localStorageKey = 'imagePopupClosed'; // Clave única para localStorage
+  // This script will run on every page that includes ImagePopup.
+  // On client-side navigations, Astro will run it again.
+  
+  // --- Define the global function ---
+  // This is idempotent. If window.openImagePopup exists, it's just reassigned.
+  window.openImagePopup = (src) => {
+      const popup = document.getElementById('image-popup');
+      const popupImage = document.getElementById('popup-image-content');
+      if (popup && popupImage) {
+          popupImage.src = src;
+          popup.classList.add('show');
+      } else {
+          console.error("Popup elements not found. Can't open image.");
+      }
+  };
 
-    // Asegúrate de que el elemento principal del popup existe
-    if (!popup) {
-        console.error("Popup element with ID 'image-popup' not found!");
-        return; // Salir si el popup principal no se encuentra
-    }
+  // --- Setup close listeners ---
+  function setupImagePopupListeners() {
+      const popup = document.getElementById('image-popup');
+      // Exit if no popup on this page, or if listeners are already attached.
+      if (!popup || popup.dataset.listenersAttached === 'true') {
+          return;
+      }
 
-    // Comprobar si el popup ya fue cerrado anteriormente
-    const wasClosed = localStorage.getItem(localStorageKey) === 'true';
+      const closeButton = document.getElementById('close-popup');
+      if (!closeButton) return;
 
-    // Si NO fue cerrado antes, mostrarlo añadiendo la clase 'show'
-    if (!wasClosed) {
-        // Usar un pequeño timeout para asegurar que la transición CSS funcione
-        setTimeout(() => {
-            popup.classList.add('show');
-        }, 10); // 10ms es suficiente
-    }
-
-    // Configurar los escuchadores de eventos SI el botón de cierre existe
-    if (closeButton) {
-      // Función para cerrar el popup Y guardar la preferencia en localStorage
       const closePopup = () => {
-        popup.classList.remove('show'); // Ocultar visualmente
-        localStorage.setItem(localStorageKey, 'true'); // Marcar como cerrado en localStorage
-        // console.log('Popup cerrado y preferencia guardada.'); // Opcional: para depuración
+          popup.classList.remove('show');
       };
-
-      // Cerrar con el botón X
+      
       closeButton.addEventListener('click', closePopup);
-
-      // Cerrar haciendo clic fuera del contenido del popup (en el fondo oscuro)
       popup.addEventListener('click', (e) => {
-        // Verifica si el clic fue DIRECTAMENTE en el div del overlay, no en ningún elemento hijo
-        if (e.target === popup) {
-          closePopup();
-        }
+          if (e.target === popup) {
+              closePopup();
+          }
       });
+      
+      // The keydown listener is on the document, so it persists across navigations.
+      // Use a global flag to ensure it's only attached once for the app's lifetime.
+      if (!window.imagePopupKeydownListener) {
+          document.addEventListener('keydown', (e) => {
+              // Find the popup dynamically, as it may or may not be in the DOM.
+              const currentPopup = document.getElementById('image-popup');
+              if (e.key === 'Escape' && currentPopup && currentPopup.classList.contains('show')) {
+                  currentPopup.classList.remove('show');
+              }
+          });
+          window.imagePopupKeydownListener = true;
+      }
 
-      // Cerrar con la tecla Escape
-      document.addEventListener('keydown', (e) => {
-        // Solo intentar cerrar si el popup está actualmente visible
-        if (e.key === 'Escape' && popup.classList.contains('show')) {
-          closePopup();
-        }
-      });
+      // Mark the popup so we don't re-attach listeners on subsequent navigations
+      popup.dataset.listenersAttached = 'true';
+  }
 
-    } else {
-        console.warn("Close button with ID 'close-popup' not found for the popup."); // Advertencia si el botón no se encuentra
-    }
-  });
+  // Use astro:page-load event which is the standard for handling scripts
+  // in Astro with View Transitions. It fires on initial load and after navigations.
+  document.addEventListener('astro:page-load', setupImagePopupListeners);
 </script>
