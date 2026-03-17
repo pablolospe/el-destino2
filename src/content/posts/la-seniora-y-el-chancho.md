@@ -15,7 +15,8 @@ portrait:
   url: "/images/autores/gustavo_foto_web.webp"
   alt: "Gustavo Garabal portrait"
 tags: ["Gustavo Garabal", "La señora y el chancho"]
-tienda: "https://titolectura.empretienda.com.ar/general/la-senora-y-el-chancho-gustavo-garcia-garabal"
+tienda: https://eldestinoediciones.empretienda.com.ar/libros-fisicos/la-senora-y-el-chancho-gustavo-garcia-garabal
+eBook: https://eldestinoediciones.empretienda.com.ar/e-books/la-senora-y-el-chancho-ebook-gustavo-garcia-garabal
 ---
 
 

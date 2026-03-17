@@ -15,7 +15,8 @@ portrait:
   url: "/images/autores/autor_agus.webp"
   alt: "Agustín Zalazar portrait"
 tags: ["Agustín Zalazar", "Lapislázuli"]
-tienda: "https://titolectura.empretienda.com.ar/libros/lapislazuli-agustin-zalazar"
+tienda: https://eldestinoediciones.empretienda.com.ar/libros-fisicos/lapislazuli-agustin-zalazar
+eBook: https://eldestinoediciones.empretienda.com.ar/e-books/lapislazuli-ebook-agustin-zalazar
 ---
 
 

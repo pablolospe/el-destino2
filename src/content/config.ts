@@ -25,6 +25,7 @@ const postsCollection = defineCollection({
 
       tags: z.array(z.string()),
       tienda: z.string(),
+      eBook: z.string().optional(),
     })
  });
 

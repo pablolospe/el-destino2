@@ -15,7 +15,8 @@ portrait:
   url: "/images/autores/sofi_foto_cortada.webp"
   alt: "Retrato de Sofía Ansaldo"
 tags: ["Sofía Ansaldo", "Breve manual de conductas gatunas & humanas"]
-tienda: "https://titolectura.empretienda.com.ar/libros/breve-manual-de-conductas-gatunas-y-humanas-2da-edicion-sofia-ansaldo"
+tienda: https://eldestinoediciones.empretienda.com.ar/libros-fisicos/breve-manual-de-conductas-gatunas-y-humanas-sofia-ansaldo
+eBook: https://eldestinoediciones.empretienda.com.ar/e-books/breve-manual-de-conductas-gatunas-y-humanas-ebook-sofia-ansaldo
 ---
 
 

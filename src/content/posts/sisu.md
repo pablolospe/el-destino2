@@ -15,7 +15,8 @@ portrait:
   url: "/images/autores/autora_noe.webp"
   alt: "Noelia Truffa portrait"
 tags: ["Noelia Truffa", "Sisu, diario de una argentina en Finlandia"]
-tienda: "https://titolectura.empretienda.com.ar/libros/sisu-diario-de-una-argentina-en-finlandia-noelia-truffa"
+tienda: https://eldestinoediciones.empretienda.com.ar/libros-fisicos/sisu-diario-de-una-argentina-en-finlandia-noelia-truffa
+eBook: https://eldestinoediciones.empretienda.com.ar/e-books/sisu-diario-de-una-argentina-en-finlandia-ebook-noelia-truffa
 ---
 
 

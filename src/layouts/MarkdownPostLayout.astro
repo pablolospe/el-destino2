@@ -114,13 +114,24 @@ Use AstroSeo in all the pages you want different Seo than the index page
                 </li>
               </ul>
 
-              <a
-                href={frontmatter.tienda}
-                target="_blank"
-                class="bg-[#ecfd83] hover:bg-[#c0e360] hover:transition ease-in-out duration-600 flex flex-col justify-center font-bold rounded-lg px-4 h-12 cursor-pointer"
-              >
-                Comprar
-              </a>
+              <div class="flex flex-col gap-2">
+                <a
+                  href={frontmatter.tienda}
+                  target="_blank"
+                  class="bg-[#ecfd83] hover:bg-[#c0e360] hover:transition ease-in-out duration-600 flex flex-col justify-center font-bold rounded-lg px-4 h-12 cursor-pointer text-center"
+                >
+                  Libro físico
+                </a>
+                {frontmatter.eBook && (
+                  <a
+                    href={frontmatter.eBook}
+                    target="_blank"
+                    class="bg-[#ecfd83] hover:bg-[#c0e360] hover:transition ease-in-out duration-600 flex flex-col justify-center font-bold rounded-lg px-4 h-12 cursor-pointer text-center"
+                  >
+                    Libro digital
+                  </a>
+                )}
+              </div>
             </div>
             <br />
 
