@@ -1,7 +1,7 @@
 ---
 pubDate: 2025-10-01
 author: Agustín Zalazar
-bio: "Agustín Zalazar nació en Río Gallegos en 1989. A los seis años quería ser mago, marinero y escritor, y cuando lo mandaban a dormir se quedaba leyendo con una linterna debajo de las sábanas. Es abogado. En 2023 publicó Los restos diurnos (Metrópolis). Esta es su segunda novela. Vive en Villa Crespo."
+bio: "Agustín Zalazar nació en Río Gallegos en 1989. A los seis años quería ser mago, marinero y escritor, y cuando lo mandaban a dormir se quedaba leyendo con una linterna debajo de las sábanas. Es abogado. En 2023 publicó <em>Los restos diurnos</em> (Metrópolis). Esta es su segunda novela. Vive en Villa Crespo."
 title: Lapislázuli
 type: "Novela"
 pages: "160"
@@ -18,6 +18,3 @@ tags: ["Agustín Zalazar", "Lapislázuli"]
 tienda: https://eldestinoediciones.empretienda.com.ar/libros-fisicos/lapislazuli-agustin-zalazar
 eBook: https://eldestinoediciones.empretienda.com.ar/e-books/lapislazuli-ebook-agustin-zalazar
 ---
-
-
-Agustín Zalazar nació en Río Gallegos en 1989. A los seis años quería ser mago, marinero y escritor, y cuando lo mandaban a dormir se quedaba leyendo con una linterna debajo de las sábanas. Es abogado. En 2023 publicó <em>Los restos diurnos</em> (Metrópolis). Esta es su segunda novela. Vive en Villa Crespo.

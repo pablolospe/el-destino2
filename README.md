@@ -67,3 +67,31 @@ All commands are run from the root of the project, from a terminal:
 ## Want to learn more?
 
 Feel free to check Astros [documentation](https://docs.astro.build)
+
+## Reglas para cargar libros (Posts)
+
+Para mantener la consistencia y aprovechar el formato dinámico, seguí estas reglas al editar o crear nuevos posts en `src/content/posts`:
+
+### 1. Formato de Bio y Descripción
+Los campos `bio` y `description` en el **frontmatter** (entre las líneas `---`) ahora soportan **HTML**. Esto te permite usar:
+- `<b>Negrita</b>`
+- `<i>Itálica</i>` o `<em>Itálica</em>`
+- `<br/>` para saltos de línea (usá `<br/><br/>` para separar párrafos).
+
+**Ejemplo:**
+```yaml
+bio: "Nació en Buenos Aires.<br/><br/><b>Premios:</b> Ganador del concurso X."
+```
+
+### 2. Sin cuerpo de Markdown
+**No escribas nada** después del segundo `---`. El contenido que antes iba en el cuerpo del archivo ahora se maneja directamente desde el campo `bio` del frontmatter para evitar duplicaciones.
+
+### 3. Campo de Páginas
+En el campo `pages`, solo ingresá el **número**. El sistema agrega automáticamente la palabra "páginas".
+- **Bien:** `pages: "120"`
+- **Mal:** `pages: "120 páginas"`
+
+### 4. Imágenes
+Aseguráse de que las rutas de las imágenes existan en `public/images/`.
+- `image`: Tapa del libro.
+- `portrait`: Foto del autor/a.

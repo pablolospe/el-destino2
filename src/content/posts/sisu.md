@@ -18,6 +18,3 @@ tags: ["Noelia Truffa", "Sisu, diario de una argentina en Finlandia"]
 tienda: https://eldestinoediciones.empretienda.com.ar/libros-fisicos/sisu-diario-de-una-argentina-en-finlandia-noelia-truffa
 eBook: https://eldestinoediciones.empretienda.com.ar/e-books/sisu-diario-de-una-argentina-en-finlandia-ebook-noelia-truffa
 ---
-
-
-Noelia Truffa nació en 1986 en Buenos Aires, donde creció, estudió (Arquitectura, Universidad de Buenos Aires), trabajó y residió durante treinta y dos años. Es autora de <em>Escribiendo por el mundo, relatos de vida nómada</em>, su primer libro. En 2021 Noe se instaló en Finlandia, donde reside en la actualidad.

@@ -18,6 +18,3 @@ portrait:
 tags: ["Gerardo A. Gallardo", "Lapislázuli"]
 tienda: https://eldestinoediciones.empretienda.com.ar/libros-fisicos/siglas-acronimos-y-retroacronimos-sar-gerardo-gallardo
 ---
-
-
-Gerardo Alfredo Gallardo nació en Comodoro Rivadavia, en 1949. Cursó la carrera de Derecho en la Universidad Nacional de La Plata, de la que se graduó en 1976. Como abogado especializado en materia de hidrocarburos, fue durante muchos años asesor legal de YPF S.A. y de la Secretaría de Energía de la Nación. Explora e investiga diversos asuntos de la lingüística, especialmente aquellos relacionados con los distintos modos de comunicación. Esta es la primera obra que publica el autor en esta materia.

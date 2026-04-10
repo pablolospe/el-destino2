@@ -160,8 +160,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
           <div
           class="w-full text-left col-span-3 text-lg lg:text-xl font-light mt-10 md:mt-0"
           >
-            <!-- {frontmatter.bio} -->
-          <slot />
+            <p set:html={frontmatter.bio} />
           </div>
         </article>
       </section>
