@@ -7,7 +7,7 @@ type: "Contario"
 pages: "132"
 size: "14 x 20 cm"
 bookbinding: "Encuadernación rústica"
-description: "¿Qué lugar les damos a los fantasmas en nuestra vida? ¿Hay forma de reconocerlos sin sentir miedo? En estas hipótesis de fin del mundo los fantasmas son evocados para mirarlos de frente y, en algunos casos, hasta decidir hasta dónde y cuándo pueden acompañarnos. En los cuentos de Teresa Kantolic reconocerlos es una puerta para habitar las dimensiones a las que puede llevarnos la creación. También son el tesoro que empuja a pensar el futuro. «El fantasma atesora el traje como la única memoria a guardar por toda la eternidad», se lee en uno de estos cuentos que arman una trama de búsqueda, por lo que no sabemos qué puede traernos la literatura hasta que la encontramos: una nueva dimensión de lo que es el principio y el fin del mundo. (Emilia Racciatti)"
+description: "¿Qué lugar les damos a los fantasmas en nuestra vida? ¿Hay forma de reconocerlos sin sentir miedo? En estas <i>hipótesis de fin del mundo</i> los fantasmas son evocados para mirarlos de frente y, en algunos casos, hasta decidir hasta dónde y cuándo pueden acompañarnos. En los cuentos de Teresa Kantolic reconocerlos es una puerta para habitar las dimensiones a las que puede llevarnos la creación. También son el tesoro que empuja a pensar el futuro. «El fantasma atesora el traje como la única memoria a guardar por toda la eternidad», se lee en uno de estos cuentos que arman una trama de búsqueda, por lo que no sabemos qué puede traernos la literatura hasta que la encontramos: una nueva dimensión de lo que es el principio y el fin del mundo. (Emilia Racciatti)"
 image:
   url: "/images/tapas/hipotesis_tapa.webp"
   alt: "Teresa Kantolic"

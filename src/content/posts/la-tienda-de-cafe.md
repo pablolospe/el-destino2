@@ -7,7 +7,7 @@ type: "Novela ilustrada"
 pages: "120"
 size: "15,5 x 21 cm"
 bookbinding: "Encuadernación rústica"
-description: "La tienda de café es el lugar donde este padre, que no puede dejar de pensar en el vínculo con su hija, se tomará los últimos dos cafés de su vida antes de dar el paso final. Con ternura y delicadeza, esta historia honesta nos invita a reflexionar sobre la vida, sobre la muerte, sobre las marcas que dejamos en las vidas de los otros, y en las que los otros nos dejan. Alejada de toda moraleja, La tienda de café nos propone hacer una pausa para valorar las vivencias desde el presente, y para recordar que lo más importante está en nuestras manos."
+description: "La tienda de café es el lugar donde este padre, que no puede dejar de pensar en el vínculo con su hija, se tomará los últimos dos cafés de su vida antes de dar el paso final. Con ternura y delicadeza, esta historia honesta nos invita a reflexionar sobre la vida, sobre la muerte, sobre las marcas que dejamos en las vidas de los otros, y en las que los otros nos dejan. Alejada de toda moraleja, <i>La tienda de café</i> nos propone hacer una pausa para valorar las vivencias desde el presente, y para recordar que lo más importante está en nuestras manos."
 image:
   url: "/images/tapas/la_tienda_tapa.webp"
   alt: "Sol María Chacana y Camila Marí Lozada"

@@ -9,14 +9,6 @@ import ImagePopup from "../components/ImagePopup.astro";
 const title = frontmatter.title;
 const description = frontmatter.description;
 
-let formattedDescription = description; // Por defecto, es la descripción original
-
-// Verificamos que ambos textos existan y que la descripción contenga el título
-if (description && title && description.includes(title)) {
-  // Reemplazamos la primera ocurrencia del título con el título en itálica
-  formattedDescription = description.replace(title, `<i>${title}</i>`);
-}
-
 ---
 
 
@@ -135,7 +127,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
             </div>
             <br />
 
-            <p class="text-left text-black text-lg lg:text-xl font-normal" set:html={formattedDescription}>
+            <p class="text-left text-black text-lg lg:text-xl font-normal" set:html={frontmatter.description}>
             </p>
           </div>
         </article>
