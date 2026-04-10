@@ -1,6 +1,6 @@
 ---
 pubDate: 2026-04-01
-author: "de Teresa Kantolic"
+author: "Teresa Kantolic"
 bio: "Teresa Kantolic nació en Buenos Aires en el verano de 1958. Estudió Medicina en la Universidad de Buenos Aires y se especializó en terapia intensiva pediátrica. Médica por profesión y lectora y escritora por deseo y empeño, se formó en el camino literario de manera no académica mediante cursos y talleres, entre los que se destacan el taller de narrativa de Cecila Maugeri y los de lectura de Christian Rodríguez. Vive en la ciudad de Neuquén desde 1984. Este es su primer libro."
 title: "Hipótesis de fin del mundo"
 type: "Contario"
