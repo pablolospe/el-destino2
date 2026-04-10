@@ -1,7 +1,7 @@
 ---
 pubDate: 2026-04-01
 author: "Sol Chacana y Camila Marí Lozada"
-bio: "Sol Chacana nació en Buenos Aires en 1999. Se crio entre libros, y aprendió el arte de relatar a través de las historias que pasaban por sus manos. En 2021 se formó como barista, lo que le abrió las puertas a un nuevo universo de sensaciones. La tienda de café es su primera obra publicada. Camila Marí Lozada nació en Buenos Aires en 2000. Encuentra en el dibujo una forma de habitar mundos imaginarios, entre lo analógico y lo digital. Enseña artes visuales en la Escuela de Ilustración José Sanabria. Esta obra marca su debut como ilustradora en un libro."
+bio: "<b>Sol Chacana</b> nació en Buenos Aires en 1999. Se crio entre libros, y aprendió el arte de relatar a través de las historias que pasaban por sus manos. En 2021 se formó como barista, lo que le abrió las puertas a un nuevo universo de sensaciones. <i>La tienda de café</i> es su primera obra publicada. <br/><br/><b>Camila Marí Lozada</b> nació en Buenos Aires en 2000. Encuentra en el dibujo una forma de habitar mundos imaginarios, entre lo analógico y lo digital. Enseña artes visuales en la Escuela de Ilustración José Sanabria. Esta obra marca su debut como ilustradora en un libro."
 title: "La tienda de café"
 type: "Novela ilustrada"
 pages: "120"
