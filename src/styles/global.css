@@ -59,4 +59,11 @@
   display: none; /* Chrome, Safari y Edge */
 }
 
+/* Ralentizar y suavizar las transiciones de página (View Transitions) globales */
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.5s !important;
+}
+
 
