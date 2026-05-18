@@ -4,66 +4,97 @@ import Footer from "@/components/global/Footer.astro";
 ---
 
 <BaseLayout>
-    <section
-        class="max-w-3xl mx-auto px-6 text-black text-lg lg:text-xl font-normal pt-20 pb-16 leading-relaxed"
-    >
-        <p class="mb-5">
-            Mi nombre es
-            <a
-                href="https://www.martinvitton.com.ar"
-                target="_blank"
-                class="underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-500 transition-colors cursor-pointer"
-                >Martín Vittón</a
-            >. Llevo casi treinta años trabajando en el rubro editorial. Soy
-            corrector literario, edito, escribo&hellip; Hago libros. Y desde hace muy
-            poco tiempo, soy quien está impulsando este deseo ya en marcha que
-            es El Destino Ediciones.
-        </p>
+    <!-- Contenedor principal con fondo ligeramente gris-piedra para hacer contrastar la hoja cruda -->
+    <div class="w-full bg-[#f3f2ee] py-24 px-4 sm:px-6 md:px-8 flex flex-col justify-center items-center overflow-hidden">
+        
+        <!-- La Hoja de Papel de Máquina de Escribir -->
+        <section
+            class="max-w-2xl w-full bg-[#faf6ee] text-[#2c2b29] border border-stone-300/50 p-8 sm:p-12 md:p-16 shadow-[0_12px_45px_rgba(0,0,0,0.08),0_3px_12px_rgba(0,0,0,0.03)] rounded-xs rotate-[-0.8deg] hover:rotate-0 transition-transform duration-700 ease-out font-typewriter relative"
+        >
+            <!-- Detalle sutil de grapa/remache superior de carta -->
+            <div class="absolute top-4 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-stone-300/20 rounded-full"></div>
 
-        <p class="mb-5">
-            Te preguntarás por qué el botoncito que te trajo hasta acá dice
-            &ldquo;Nosotros&rdquo;. Considero que los proyectos editoriales son proyectos
-            colectivos. Esa es una idea que me gusta transmitir en charlas,
-            talleres y sobremesas: para hacer un libro, es necesaria la
-            participación de varias personas. Así, si bien El Destino surgió
-            como una necesidad propia, para darle forma recibí &mdash;y recibo&mdash; la
-            ayuda de muchos profesionales que ponen su experiencia, sus
-            conocimientos en cada proyecto.
-        </p>
+            <div class="text-left text-base sm:text-lg leading-relaxed space-y-6">
+                <!-- Fecha al estilo correspondencia -->
+                <div class="text-right text-xs sm:text-sm text-stone-500 mb-8 tracking-wider font-bold italic">
+                    Buenos Aires, 2025
+                </div>
 
-        <p class="mb-5">
-            Hoy, en los comienzos de 2025, estamos trabajando con tres obras que
-            pronto serán publicadas. Además, recientemente realizamos la edición
-            e impresión de dos libros a pedido desde nuestro sello
-            <a
-                href="https://www.instagram.com/libroshechosencasa"
-                target="_blank"
-                class="underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-500 transition-colors cursor-pointer"
-                >Libros Hechos en Casa (LhC)</a
-            >: un libro corporativo y otro familiar. Y como siempre, colaboramos
-            con editoriales y autores independientes. Y estamos leyendo y
-            leyendo.
-        </p>
+                <p>
+                    Mi nombre es
+                    <a
+                        href="https://www.martinvitton.com.ar"
+                        target="_blank"
+                        class="underline decoration-stone-400 underline-offset-4 hover:decoration-black transition-colors cursor-pointer font-bold"
+                        >Martín Vittón</a
+                    >. Llevo casi treinta años trabajando en el rubro editorial. Soy
+                    corrector literario, edito, escribo&hellip; Hago libros. Y desde hace muy
+                    poco tiempo, soy quien está impulsando este deseo ya en marcha que
+                    es El Destino Ediciones.
+                </p>
 
-        <p class="mb-5">
-            El Destino es un espacio donde hacemos libros cuidados, desde la
-            palabra, desde la forma, desde el papel. Es también el lugar adonde
-            los autores llegan para concretar esos libros que tanto anhelan.
-        </p>
+                <p>
+                    Te preguntarás por qué el botoncito que te trajo hasta acá dice
+                    &ldquo;Nosotros&rdquo;. Considero que los proyectos editoriales son proyectos
+                    colectivos. Esa es una idea que me gusta transmitir en charlas,
+                    talleres y sobremesas: para hacer un libro, es necesaria la
+                    participación de varias personas. Así, si bien El Destino surgió
+                    como una necesidad propia, para darle forma recibí &mdash;y recibo&mdash; la
+                    ayuda de muchos profesionales que ponen su experiencia, sus
+                    conocimientos en cada proyecto.
+                </p>
 
-        <p class="mb-5">
-            Te invitamos a seguirnos en nuestras redes y a suscribirte a nuestro
-            newsletter.
-        </p>
+                <p>
+                    Hoy, en los comienzos de 2025, estamos trabajando con tres obras que
+                    pronto serán publicadas. Además, recientemente realizamos la edición
+                    e impresión de dos libros a pedido desde nuestro sello
+                    <a
+                        href="https://www.instagram.com/libroshechosencasa"
+                        target="_blank"
+                        class="underline decoration-stone-400 underline-offset-4 hover:decoration-black transition-colors cursor-pointer font-bold"
+                        >Libros Hechos en Casa (LhC)</a
+                    >: un libro corporativo y otro familiar. Y como siempre, colaboramos
+                    con editoriales y autores independientes. Y estamos leyendo y
+                    leyendo.
+                </p>
 
-        <p>
-            Muchas gracias por tu tiempo.
-            <a
-                href="https://www.martinvitton.com.ar"
-                target="_blank"
-                class="hover:text-zinc-500 transition-colors cursor-pointer"
-                ><em>&mdash;&thinsp;Martín</em></a>
-        </p>
-    </section>
+                <p>
+                    El Destino es un espacio donde hacemos libros cuidados, desde la
+                    palabra, desde la forma, desde el papel. Es también el lugar adonde
+                    los autores llegan para concretar esos libros que tanto anhelan.
+                </p>
+
+                <p>
+                    Te invitamos a seguirnos en nuestras redes y a suscribirte a nuestro
+                    newsletter.
+                </p>
+
+                <div class="border-t border-stone-300/40 pt-4 mt-8"></div>
+
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-2 gap-4">
+                    <p class="text-stone-500 italic text-sm">
+                        Muchas gracias por tu tiempo.
+                    </p>
+                    <p class="text-right">
+                        <a
+                            href="https://www.martinvitton.com.ar"
+                            target="_blank"
+                            class="hover:text-black transition-colors cursor-pointer font-bold border-b border-stone-400 pb-0.5 hover:border-black"
+                            ><em>&mdash;&thinsp;Martín</em></a
+                        >
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
     <Footer />
 </BaseLayout>
+
+<style>
+    /* Importación de la fuente de máquina de escribir Courier Prime */
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    .font-typewriter {
+        font-family: 'Courier Prime', Courier, 'Courier New', monospace;
+    }
+</style>
