@@ -1,0 +1,138 @@
+---
+// ClipboardCopier.astro
+// Este componente gestiona de manera global y elegante el copiado al portapapeles
+// para todos los correos y elementos interactivos, mostrando un tooltip premium.
+---
+
+<script>
+  // Función para crear y mostrar el tooltip premium
+  function showTooltip(target: HTMLElement, message: string) {
+    // Eliminar tooltips anteriores que puedan haber quedado activos
+    const existingTooltip = document.querySelector('.global-copy-tooltip');
+    if (existingTooltip) {
+      existingTooltip.remove();
+    }
+
+    // Crear el elemento de tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'global-copy-tooltip';
+    tooltip.textContent = message;
+    document.body.appendChild(tooltip);
+
+    // Calcular la posición relativa al elemento clickeado
+    const targetRect = target.getBoundingClientRect();
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Centrar horizontalmente arriba del elemento
+    const x = targetRect.left + scrollLeft + (targetRect.width / 2);
+    const y = targetRect.top + scrollTop;
+
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+
+    // Forzar reflow para habilitar la animación de entrada
+    tooltip.offsetHeight;
+    tooltip.classList.add('show');
+
+    // Ocultar y remover el tooltip después de un tiempo prudente (1.5 segundos)
+    setTimeout(() => {
+      tooltip.classList.remove('show');
+      
+      let removed = false;
+      const removeFn = () => {
+        if (!removed) {
+          removed = true;
+          tooltip.remove();
+        }
+      };
+
+      tooltip.addEventListener('transitionend', removeFn, { once: true });
+      // Respaldo de seguridad en caso de que transitionend no se dispare
+      setTimeout(removeFn, 300);
+    }, 1500);
+  }
+
+  // Manejador del copiado al portapapeles
+  async function handleCopy(target: HTMLElement, textToCopy: string, successMessage: string) {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      showTooltip(target, successMessage);
+    } catch (err) {
+      console.error('Error al copiar al portapapeles:', err);
+    }
+  }
+
+  // Delegación de eventos global a nivel de document
+  // Esto es 100% robusto, funciona inmediatamente en carga inicial y después de
+  // cualquier transición de página de Astro (ClientRouter) sin duplicar listeners.
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (!target) return;
+
+    // Buscar si el elemento clickeado o alguno de sus ancestros es un link mailto
+    const mailtoLink = target.closest('a[href^="mailto:"]');
+    // Buscar si el elemento clickeado o alguno de sus ancestros tiene data-copy-text
+    const copyElement = target.closest('[data-copy-text]');
+
+    if (mailtoLink) {
+      event.preventDefault();
+      event.stopPropagation();
+      
+      const href = mailtoLink.getAttribute('href');
+      if (!href) return;
+      
+      const email = href.replace(/^mailto:/i, '').split('?')[0].trim();
+      
+      handleCopy(mailtoLink as HTMLElement, email, '¡Email copiado!');
+    } else if (copyElement) {
+      event.preventDefault();
+      event.stopPropagation();
+      
+      const textToCopy = copyElement.getAttribute('data-copy-text');
+      const customMessage = copyElement.getAttribute('data-copy-tooltip') || '¡Copiado!';
+      
+      if (!textToCopy) return;
+      
+      handleCopy(copyElement as HTMLElement, textToCopy, customMessage);
+    }
+  });
+</script>
+
+<style is:global>
+  /* Tooltip con estética premium adaptado a la identidad Torres Cardinal */
+  .global-copy-tooltip {
+    position: absolute;
+    background-color: #3e484d; /* Color principal de marca */
+    color: #ffffff;
+    padding: 6px 12px;
+    font-family: "Avenir", "Inter", sans-serif;
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 500;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -100%) translateY(-6px);
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+  }
+
+  .global-copy-tooltip.show {
+    opacity: 1;
+    transform: translate(-50%, -100%) translateY(-12px);
+  }
+
+  /* Pequeña flecha debajo del tooltip */
+  .global-copy-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #3e484d transparent transparent transparent;
+  }
+</style>

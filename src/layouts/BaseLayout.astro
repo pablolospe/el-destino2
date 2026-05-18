@@ -2,6 +2,7 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Navigation from "@/components/global/Navigation.astro";
 import { ClientRouter } from "astro:transitions";
+import ClipboardCopier from "@/components/global/ClipboardCopier.astro";
 ---
 
 <html lang="es">
@@ -12,5 +13,6 @@ import { ClientRouter } from "astro:transitions";
   <body class="bg-white flex flex-col min-h-screen">
     <Navigation />
     <main class="flex-grow flex-1 flex flex-col justify-center"><slot /></main>
+    <ClipboardCopier />
   </body>
 </html>
