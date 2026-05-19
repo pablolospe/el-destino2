@@ -2,23 +2,24 @@
 import CreditosComponent from "./CreditosComponent.astro";
 ---
 
-<footer class="bg-stone-100 border-t border-zinc-200 mt-auto w-full">
+<footer class="bg-stone-50/80 backdrop-blur-sm border border-stone-200/80 rounded-2xl md:rounded-3xl mt-auto mb-6 md:mb-8 lg:mb-12 mx-4 md:mx-8 lg:mx-auto max-w-7xl w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] 2xl:max-w-7xl shadow-sm shadow-stone-200/30 transition-all duration-300">
   <div
     class="flex flex-col-reverse lg:flex-row px-8 lg:px-12 mx-auto py-6 xl:px-20 gap-4 justify-between items-center"
   >
     <section class="flex flex-row justify-between items-end gap-20">
       <div class="flex flex-col">
-        <div class="flex justify-start gap-4 mb-2">
+        <div class="flex justify-start gap-4 mb-3">
           <a
             href="https://www.facebook.com/profile.php?id=61563371720129"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
+            class="text-stone-400 hover:text-black transition-all duration-300 hover:scale-110 active:scale-95 inline-block"
           >
             <svg
-              fill="#000000"
-              height="2rem"
-              width="2rem"
+              fill="currentColor"
+              height="1.8rem"
+              width="1.8rem"
               viewBox="-143 145 512 512"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -34,11 +35,12 @@ import CreditosComponent from "./CreditosComponent.astro";
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
+            class="text-stone-400 hover:text-black transition-all duration-300 hover:scale-110 active:scale-95 inline-block"
           >
             <svg
-              fill="#000000"
-              height="2rem"
-              width="2rem"
+              fill="currentColor"
+              height="1.8rem"
+              width="1.8rem"
               viewBox="-143 145 512 512"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -56,7 +58,7 @@ import CreditosComponent from "./CreditosComponent.astro";
             </svg>
           </a>
         </div>
-        <ul class="text-sm text-zinc-600 lg:col-span-2">
+        <ul class="text-sm text-stone-600 lg:col-span-2">
           <li><b>El Destino Ediciones</b></li>
           <li><a href="mailto:eldestinoediciones@gmail.com" class="hover:text-black transition-colors duration-300">eldestinoediciones@gmail.com</a></li>
           <li>Ciudad de Buenos Aires,</li>
@@ -83,7 +85,7 @@ import CreditosComponent from "./CreditosComponent.astro";
           <input
             id="subscriptionEmail"
             name="subscriptionEmail"
-            class="w-[16rem] h-full text-[0.7rem] px-4 py-2 border border-gray-300 rounded-full"
+            class="w-[16rem] h-full text-[0.7rem] px-4 py-2 border border-stone-200 hover:border-stone-300 focus:border-stone-500 focus:outline-none focus:ring-4 focus:ring-stone-100 rounded-full transition-all duration-300 bg-white/60"
             placeholder="Para recibir novedades, dejanos tu email"
             type="email"
             required
@@ -91,14 +93,14 @@ import CreditosComponent from "./CreditosComponent.astro";
           <button
             id="button"
             type="submit"
-            class="bg-black text-white px-4 py-2 h-full hover:bg-gray-800 transition duration-300 rounded-full cursor-pointer"
+            class="bg-black text-white text-xs px-5 py-2 h-full hover:bg-stone-850 active:scale-95 transition-all duration-300 rounded-full cursor-pointer shadow-sm hover:shadow"
           >
             Enviar
           </button>
           <button
             disabled
             id="buttonDisabled"
-            class="bg-gray-300 text-white px-4 py-2 h-full hidden rounded-full"
+            class="bg-stone-200 text-stone-400 px-5 py-2 h-full hidden rounded-full text-xs"
           >
             Enviar
           </button>

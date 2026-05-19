@@ -2,6 +2,19 @@
 import { Image } from "astro:assets";
 
 const { title, url, description, pubDate, author, image, tags } = Astro.props;
+
+// Aspect ratio lookup map to prevent Cumulative Layout Shift (CLS)
+const imageDimensions: Record<string, { width: number; height: number }> = {
+  "/images/tapas/breve_manual_mockup.webp": { width: 1755, height: 1890 },
+  "/images/tapas/hipotesis_tapa.webp": { width: 1454, height: 2088 },
+  "/images/tapas/LSyEC_mockup.webp": { width: 518, height: 851 },
+  "/images/tapas/la_tienda_tapa.webp": { width: 1342, height: 1824 },
+  "/images/tapas/lapislazuli_tapa.webp": { width: 1646, height: 2573 },
+  "/images/tapas/siglas_tapa.webp": { width: 1698, height: 2717 },
+  "/images/tapas/sisu_tapa.webp": { width: 1838, height: 2669 },
+};
+
+const dims = imageDimensions[image] || { width: 550, height: 800 };
 ---
 
 <li class="flex flex-col h-full w-auto justify-center ">
@@ -14,8 +27,9 @@ const { title, url, description, pubDate, author, image, tags } = Astro.props;
     <Image
       transition:name={`portada${image}`}
       class="block w-full h-full object-cover bg-center sm:block sm:w-auto sm:h-auto sm:object-contain sm:shadow-xl sm:shadow-gray-400"
-      height={800}
-      width={400}
+      height={dims.height}
+      width={dims.width}
+      style={`aspect-ratio: ${dims.width} / ${dims.height};`}
       src={image}
       alt={title}
       loading="eager"
