@@ -6,17 +6,49 @@ import Footer from "@/components/global/Footer.astro";
 ---
 
 <BaseLayout>
-    <section
-        class="w-full flex flex-1 justify-center items-center text-lg font-light text-left"
-    >
-        <div class="w-fit flex flex-col gap-1 xs:text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl m-4">
-            <EmailCopy />
-            <PhoneCopy />
-            <div class="flex items-start sm:items-center w-fit space-x-2 group px-4 py-2 gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-map-pin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" /></svg>
-                <p >Ciudad de Buenos Aires, República Argentina</p>
+    <!-- Contenedor principal con fondo gris-piedra para simular el escritorio -->
+    <div class="w-full bg-[#f3f2ee] py-12 sm:py-20 px-4 sm:px-6 md:px-8 flex-grow flex-1 flex flex-col justify-center items-center overflow-hidden ">
+        
+        <!-- Tarjeta de Correspondencia / Postal -->
+        <section
+            class="max-w-md md:max-w-lg w-full bg-[#faf6ee] text-[#2c2b29] border border-stone-300/50 p-4 sm:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.02)] rounded-xs font-typewriter relative"
+        >
+            <!-- Cabecera de la ficha técnica -->
+            <div class="border-b border-stone-300/40 pb-4 mb-6 select-none">
+                <h2 class="text-xs uppercase tracking-widest text-stone-500 font-bold mb-1">El Destino Ediciones</h2>
+                <p class="text-xs text-stone-400 font-mono">Ficha de Correspondencia</p>
             </div>
-        </div>
-    </section>
+
+            <!-- Datos de Contacto -->
+            <div class="flex flex-col gap-3">
+                <div class="font-typewriter w-full flex justify-start">
+                    <EmailCopy />
+                </div>
+                <div class="font-typewriter w-full flex justify-start">
+                    <PhoneCopy />
+                </div>
+                
+                <div class="flex items-center w-full space-x-2 group px-4 py-2 gap-4 text-[#2c2b29] hover:bg-stone-200/50 rounded-md transition-colors cursor-default select-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-map-pin shrink-0 mt-0.5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" /></svg>
+                    <span class="text-base sm:text-lg">Buenos Aires, Argentina</span>
+                </div>
+            </div>
+
+            <!-- Línea de adorno retro al final de la tarjeta -->
+            <div class="border-t border-stone-300/40 pt-4 mt-6 flex justify-between items-center text-[10px] text-stone-400 font-mono uppercase tracking-wider select-none">
+                <span>Cod. 2025</span>
+                <span>editorial independiente</span>
+            </div>
+        </section>
+    </div>
     <Footer />
 </BaseLayout>
+
+<style>
+    /* Importación de la fuente de máquina de escribir Courier Prime */
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    .font-typewriter {
+        font-family: 'Courier Prime', Courier, 'Courier New', monospace !important;
+    }
+</style>
