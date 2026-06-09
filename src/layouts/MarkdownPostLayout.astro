@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props;
+const { frontmatter, prevPost, nextPost } = Astro.props;
 import arrow from "public/images/arrow_direction_left_back_icon.svg"; // O desde 'public/images'
 import { AstroSeo } from "@astrolib/seo";
 import ImagePopup from "../components/ImagePopup.astro";
@@ -60,14 +60,23 @@ Use AstroSeo in all the pages you want different Seo than the index page
 />
 
 <BaseLayout>
-  <div class="px-8 pt-12 pb-8 md:px-12 mx-auto max-w-7xl lg:px-52">
+  <div id="swipe-container" data-prev={prevPost ? `/posts/${prevPost.slug}` : ""} data-next={nextPost ? `/posts/${nextPost.slug}` : ""} class="px-8 pt-12 pb-8 md:px-12 mx-auto max-w-7xl lg:px-52">
+    
+    <!-- Top Navigation & Swipe Hint -->
+    <div class="flex justify-center mb-8 md:mb-12 text-xs uppercase font-sans tracking-wider text-neutral-400">
+      <!--
+      <a href="/libros" class="hover:text-black transition-colors duration-300 flex items-center gap-1.5">
+        <Image src={arrow} alt="Volver" width={14} height={14} class="opacity-60" />
+        <span>Libros</span>
+      </a>
+      -->
+      <span class="md:hidden text-[10px] tracking-widest animate-pulse">
+        ← Desliza para navegar →
+      </span>
+    </div>
+
     <div class="text-center">
       <div class="flex flex-row justify-center">
-
-        <!-- B A C K   A R R O W -->
-        <button class="absolute top-6 md:top-36 left-6 md:left-12 lg:left-28 cursor-pointer" onclick="history.back()">
-          <Image src={arrow} alt="Arrow back" width={25} height={25} decoding="sync" />
-        </button>
         <div>
         <h1
           class="text-3xl md:text-3xl w-full tracking-tight text-balance font-medium font-display text-black mb-1"
@@ -184,13 +193,154 @@ Use AstroSeo in all the pages you want different Seo than the index page
           </div>
         </article>
       </section>
-      <!-- <div
-        class="text-sm prose text-neutral-600 prose-a:font-normal prose-a:text-blue-400 hover:prose-a:text-black prose-h1:text-black prose-img:border-2 prose-img:bg-neutral-50 prose-img:border-transparent prose-h2:text-black prose-h2:font-semibold prose-p:text-sm prose-pre:font-mono max-w-none prose-pre:rounded-none prose-headings:font-display"
-      >
-        <slot />
-      </div> -->
+
+      <!-- Bottom Navigation -->
+      <div class="border-t border-zinc-100 pt-8 mt-16 flex items-center justify-between font-sans text-xs uppercase tracking-wider">
+        {prevPost ? (
+          <a href={`/posts/${prevPost.slug}`} class="flex items-center gap-2 text-neutral-400 hover:text-black transition-colors duration-300 group">
+            <Image class="opacity-40 group-hover:-translate-x-1 transition-transform duration-300" src={arrow} alt="Anterior" width={14} height={14} />
+            <span class="hidden sm:inline max-w-[180px] truncate">{prevPost.title}</span>
+            <span class="sm:hidden">Anterior</span>
+          </a>
+        ) : (
+          <div />
+        )}
+        
+        <a href="/libros" class="text-neutral-400 hover:text-black transition-colors duration-300 font-semibold">
+          Ver todos
+        </a>
+
+        {nextPost ? (
+          <a href={`/posts/${nextPost.slug}`} class="flex items-center gap-2 text-neutral-400 hover:text-black transition-colors duration-300 group">
+            <span class="hidden sm:inline max-w-[180px] truncate">{nextPost.title}</span>
+            <span class="sm:hidden">Siguiente</span>
+            <Image class="opacity-40 group-hover:translate-x-1 transition-transform duration-300 rotate-180" src={arrow} alt="Siguiente" width={14} height={14} />
+          </a>
+        ) : (
+          <div />
+        )}
+      </div>
+
     </div>
   </div>
+
+  <!-- Desktop Side Floating Navigation Arrows -->
+  {prevPost && (
+    <a 
+      href={`/posts/${prevPost.slug}`}
+      class="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 items-center justify-center w-12 h-12 rounded-full hover:bg-neutral-50 transition-all duration-300 z-40 group"
+      title={`Anterior: ${prevPost.title}`}
+    >
+      <Image 
+        class="opacity-30 group-hover:opacity-100 group-hover:-translate-x-1 transition-all duration-300"
+        src={arrow} 
+        alt="Anterior" 
+        width={24} 
+        height={24} 
+      />
+    </a>
+  )}
+
+  {nextPost && (
+    <a 
+      href={`/posts/${nextPost.slug}`}
+      class="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 items-center justify-center w-12 h-12 rounded-full hover:bg-neutral-50 transition-all duration-300 z-40 group"
+      title={`Siguiente: ${nextPost.title}`}
+    >
+      <Image 
+        class="opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 rotate-180"
+        src={arrow} 
+        alt="Siguiente" 
+        width={24} 
+        height={24} 
+      />
+    </a>
+  )}
+
   <br />
   <ImagePopup transitionName={`portada${frontmatter.image.url}`} />
 </BaseLayout>
+
+<script>
+  function initSwipeNavigation() {
+    const container = document.getElementById('swipe-container');
+    if (!container) return;
+
+    const prevUrl = container.getAttribute('data-prev');
+    const nextUrl = container.getAttribute('data-next');
+
+    let touchstartX = 0;
+    let touchstartY = 0;
+    let touchendX = 0;
+    let touchendY = 0;
+    let isSwiping = false;
+
+    const threshold = 80; // minimum horizontal swipe distance in pixels
+    const restraint = 100; // maximum vertical movement allowed to prevent triggering during scrolls
+
+    // Remove existing event listeners if any to prevent duplicates on view transition re-runs
+    document.removeEventListener('touchstart', handleTouchStart);
+    document.removeEventListener('touchmove', handleTouchMove);
+    document.removeEventListener('touchend', handleTouchEnd);
+
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    document.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    function handleTouchStart(e: TouchEvent) {
+      touchstartX = e.changedTouches[0].screenX;
+      touchstartY = e.changedTouches[0].screenY;
+      isSwiping = true;
+    }
+
+    function handleTouchMove(e: TouchEvent) {
+      if (!isSwiping) return;
+      const currentX = e.touches[0].screenX;
+      const currentY = e.touches[0].screenY;
+      const deltaX = currentX - touchstartX;
+      const deltaY = currentY - touchstartY;
+
+      // If they are swiping mostly horizontally, move the container for elastic feedback
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaY) < restraint) {
+        if ((deltaX < 0 && nextUrl) || (deltaX > 0 && prevUrl)) {
+          // Prevent default scrolling behavior when actively swiping horizontally
+          if (e.cancelable) e.preventDefault();
+          container.style.transition = 'none';
+          container.style.transform = `translateX(${deltaX / 3.5}px)`;
+        }
+      }
+    }
+
+    function handleTouchEnd(e: TouchEvent) {
+      if (!isSwiping) return;
+      isSwiping = false;
+      touchendX = e.changedTouches[0].screenX;
+      touchendY = e.changedTouches[0].screenY;
+      
+      // Animate returning to normal position
+      container.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      container.style.transform = '';
+
+      handleGesture();
+    }
+
+    function handleGesture() {
+      const deltaX = touchendX - touchstartX;
+      const deltaY = touchendY - touchstartY;
+
+      // Check if the swipe was horizontal and not a vertical scroll
+      if (Math.abs(deltaX) >= threshold && Math.abs(deltaY) <= restraint) {
+        if (deltaX < 0 && nextUrl) {
+          // Swipe left -> Next book
+          window.location.href = nextUrl;
+        } else if (deltaX > 0 && prevUrl) {
+          // Swipe right -> Previous book
+          window.location.href = prevUrl;
+        }
+      }
+    }
+  }
+
+  // Initialize swipe triggers on initial load and navigation view transitions
+  document.addEventListener('astro:page-load', initSwipeNavigation);
+</script>
