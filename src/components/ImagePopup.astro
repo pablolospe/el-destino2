@@ -1,8 +1,5 @@
 ---
 // src/components/ImagePopup.astro
-
-// No props son necesarias para el componente en sí, 
-// ya que la imagen se establecerá dinámicamente.
 ---
 
 <div id="image-popup" class="popup-overlay">
@@ -25,14 +22,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .popup-overlay.show {
@@ -43,18 +39,15 @@
   .popup-container {
     position: relative;
     max-width: 90vw;
-    background: white;
-    /* border-radius: 12px; */
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    transform: scale(0.8);
-    transition: transform 0.3s ease;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
   }
 
   .close-button {
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -20px;
+    right: -20px;
     background: #ff4757;
     border: none;
     border-radius: 50%;
@@ -65,9 +58,9 @@
     justify-content: center;
     cursor: pointer;
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease;
-    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 10;
   }
   
   .close-button:hover {
@@ -76,30 +69,27 @@
   }
 
   .popup-image {
-    max-width: 100%;
+    max-width: 90vw;
     max-height: 80vh;
     height: auto;
     object-fit: contain;
-    /* border-radius: 8px; */
+    border-radius: 4px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
   
   @media (max-width: 768px) {
     .popup-container {
-      padding: 15px;
       margin: 20px;
     }
     .popup-image {
       max-height: 70vh;
     }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  .popup-overlay.show .popup-container {
-    animation: fadeIn 0.3s ease forwards;
+    .close-button {
+      top: -15px;
+      right: -15px;
+      width: 36px;
+      height: 36px;
+    }
   }
 </style>
 
@@ -107,31 +97,84 @@
   // This script will run on every page that includes ImagePopup.
   // On client-side navigations, Astro will run it again.
   
-  // --- Define the global function ---
-  // This is idempotent. If window.openImagePopup exists, it's just reassigned.
   window.openImagePopup = (src) => {
       const popup = document.getElementById('image-popup');
       const popupImage = document.getElementById('popup-image-content');
-      if (popup && popupImage) {
-          popupImage.src = src;
-          popup.classList.add('show');
-      } else {
+      if (!popup || !popupImage) {
           console.error("Popup elements not found. Can't open image.");
+          return;
+      }
+
+      // Find the source image on the page, handling URL-encoded chars from Astro's optimized image URLs
+      const sourceImg = Array.from(document.querySelectorAll('img')).find(img => {
+          const imgCtx = img.getAttribute('src') || '';
+          return imgCtx.includes(src) || decodeURIComponent(imgCtx).includes(src);
+      });
+      window.lastPopupSourceImg = sourceImg;
+
+      popupImage.src = src;
+
+      const triggerOpen = () => {
+          if (sourceImg && document.startViewTransition) {
+              const transitionName = sourceImg.style.viewTransitionName || getComputedStyle(sourceImg).viewTransitionName;
+
+              if (transitionName && transitionName !== 'none') {
+                  // Swap names inside the transition
+                  document.startViewTransition(() => {
+                      sourceImg.style.viewTransitionName = 'none';
+                      popupImage.style.viewTransitionName = transitionName;
+                      popup.classList.add('show');
+                  }).finished.finally(() => {
+                      sourceImg.style.viewTransitionName = '';
+                      popupImage.style.viewTransitionName = '';
+                  });
+                  return;
+              }
+          }
+          popup.classList.add('show');
+      };
+
+      if (popupImage.complete) {
+          triggerOpen();
+      } else {
+          popupImage.onload = triggerOpen;
       }
   };
 
   // --- Setup close listeners ---
   function setupImagePopupListeners() {
       const popup = document.getElementById('image-popup');
-      // Exit if no popup on this page, or if listeners are already attached.
       if (!popup || popup.dataset.listenersAttached === 'true') {
           return;
       }
 
       const closeButton = document.getElementById('close-popup');
-      if (!closeButton) return;
+      const popupImage = document.getElementById('popup-image-content');
+      if (!closeButton || !popupImage) return;
 
       const closePopup = () => {
+          const sourceImg = window.lastPopupSourceImg;
+
+          if (sourceImg && document.startViewTransition) {
+              const transitionName = sourceImg.style.viewTransitionName || getComputedStyle(sourceImg).viewTransitionName;
+
+              if (transitionName && transitionName !== 'none') {
+                  // Configure old state (popup has transition name, page source doesn't)
+                  popupImage.style.viewTransitionName = transitionName;
+                  sourceImg.style.viewTransitionName = 'none';
+
+                  document.startViewTransition(() => {
+                      // Configure new state (popup cleared, page source restored)
+                      popupImage.style.viewTransitionName = 'none';
+                      sourceImg.style.viewTransitionName = '';
+                      popup.classList.remove('show');
+                  }).finished.finally(() => {
+                      popupImage.style.viewTransitionName = '';
+                      sourceImg.style.viewTransitionName = '';
+                  });
+                  return;
+              }
+          }
           popup.classList.remove('show');
       };
       
@@ -142,14 +185,11 @@
           }
       });
       
-      // The keydown listener is on the document, so it persists across navigations.
-      // Use a global flag to ensure it's only attached once for the app's lifetime.
       if (!window.imagePopupKeydownListener) {
           document.addEventListener('keydown', (e) => {
-              // Find the popup dynamically, as it may or may not be in the DOM.
               const currentPopup = document.getElementById('image-popup');
               if (e.key === 'Escape' && currentPopup && currentPopup.classList.contains('show')) {
-                  currentPopup.classList.remove('show');
+                  closePopup();
               }
           });
           window.imagePopupKeydownListener = true;

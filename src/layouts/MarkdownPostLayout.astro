@@ -165,6 +165,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
             {frontmatter.portrait && portraitDims && (
               <div class="cursor-pointer" onclick={`openImagePopup('${frontmatter.portrait.url}')`}>
                 <Image
+                  transition:name={`autor${frontmatter.portrait.url}`}
                   class="w-full drop-shadow-lg md:drop-shadow-2xl"
                   height={portraitDims.height}
                   width={portraitDims.width}
@@ -191,5 +192,5 @@ Use AstroSeo in all the pages you want different Seo than the index page
     </div>
   </div>
   <br />
-  <ImagePopup />
+  <ImagePopup transitionName={`portada${frontmatter.image.url}`} />
 </BaseLayout>
