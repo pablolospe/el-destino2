@@ -66,7 +66,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 
         <!-- B A C K   A R R O W -->
         <button class="absolute top-6 md:top-36 left-6 md:left-12 lg:left-28 cursor-pointer" onclick="history.back()">
-          <Image src={arrow} alt="Arrow back" width={25} height={25}>
+          <Image src={arrow} alt="Arrow back" width={25} height={25} decoding="sync" />
         </button>
         <div>
         <h1
@@ -101,6 +101,8 @@ Use AstroSeo in all the pages you want different Seo than the index page
                 style={`aspect-ratio: ${coverDims.width} / ${coverDims.height};`}
                 src={frontmatter.image.url}
                 alt={frontmatter.image.alt}
+                loading="eager"
+                decoding="sync"
               />
             </div>
           </div>
