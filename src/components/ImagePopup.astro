@@ -4,11 +4,6 @@
 
 <div id="image-popup" class="popup-overlay">
   <div class="popup-container">
-    <button class="close-button" id="close-popup" aria-label="Cerrar popup">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
     <div class="popup-content">
       <img src="" alt="Imagen ampliada" class="popup-image" id="popup-image-content" />
     </div>
@@ -29,6 +24,7 @@
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
+    cursor: zoom-out; /* Show zoom-out cursor to indicate it can be closed by clicking */
   }
 
   .popup-overlay.show {
@@ -44,30 +40,6 @@
     box-shadow: none;
   }
 
-  .close-button {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    background: #ff4757;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    z-index: 10;
-  }
-  
-  .close-button:hover {
-    background: #ff3742;
-    transform: scale(1.1);
-  }
-
   .popup-image {
     max-width: 90vw;
     max-height: 80vh;
@@ -75,6 +47,7 @@
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    cursor: zoom-out;
   }
   
   @media (max-width: 768px) {
@@ -83,12 +56,6 @@
     }
     .popup-image {
       max-height: 70vh;
-    }
-    .close-button {
-      top: -15px;
-      right: -15px;
-      width: 36px;
-      height: 36px;
     }
   }
 </style>
@@ -105,8 +72,9 @@
           return;
       }
 
-      // Find the source image on the page, handling URL-encoded chars from Astro's optimized image URLs
+      // Find the source image on the page (excluding the popup image itself)
       const sourceImg = Array.from(document.querySelectorAll('img')).find(img => {
+          if (img === popupImage) return false;
           const imgCtx = img.getAttribute('src') || '';
           return imgCtx.includes(src) || decodeURIComponent(imgCtx).includes(src);
       });
@@ -119,14 +87,28 @@
               const transitionName = sourceImg.style.viewTransitionName || getComputedStyle(sourceImg).viewTransitionName;
 
               if (transitionName && transitionName !== 'none') {
+                  // Disable transition names on all other page images so they stay beneath the overlay during animation
+                  const otherImages = Array.from(document.querySelectorAll('img')).filter(
+                      img => img !== sourceImg && img !== popupImage
+                  );
+                  otherImages.forEach(img => {
+                      img.dataset.savedTransitionName = img.style.viewTransitionName || getComputedStyle(img).viewTransitionName;
+                      img.style.viewTransitionName = 'none';
+                  });
+
                   // Swap names inside the transition
                   document.startViewTransition(() => {
                       sourceImg.style.viewTransitionName = 'none';
+                      sourceImg.style.opacity = '0'; // Hide page image to avoid ghosting during transition
                       popupImage.style.viewTransitionName = transitionName;
                       popup.classList.add('show');
                   }).finished.finally(() => {
                       sourceImg.style.viewTransitionName = '';
                       popupImage.style.viewTransitionName = '';
+                      // Restore original names to other images
+                      otherImages.forEach(img => {
+                          img.style.viewTransitionName = img.dataset.savedTransitionName || '';
+                      });
                   });
                   return;
               }
@@ -144,13 +126,10 @@
   // --- Setup close listeners ---
   function setupImagePopupListeners() {
       const popup = document.getElementById('image-popup');
-      if (!popup || popup.dataset.listenersAttached === 'true') {
+      const popupImage = document.getElementById('popup-image-content');
+      if (!popup || !popupImage || popup.dataset.listenersAttached === 'true') {
           return;
       }
-
-      const closeButton = document.getElementById('close-popup');
-      const popupImage = document.getElementById('popup-image-content');
-      if (!closeButton || !popupImage) return;
 
       const closePopup = () => {
           const sourceImg = window.lastPopupSourceImg;
@@ -159,6 +138,15 @@
               const transitionName = sourceImg.style.viewTransitionName || getComputedStyle(sourceImg).viewTransitionName;
 
               if (transitionName && transitionName !== 'none') {
+                  // Disable transition names on all other page images during close animation
+                  const otherImages = Array.from(document.querySelectorAll('img')).filter(
+                      img => img !== sourceImg && img !== popupImage
+                  );
+                  otherImages.forEach(img => {
+                      img.dataset.savedTransitionName = img.style.viewTransitionName || getComputedStyle(img).viewTransitionName;
+                      img.style.viewTransitionName = 'none';
+                  });
+
                   // Configure old state (popup has transition name, page source doesn't)
                   popupImage.style.viewTransitionName = transitionName;
                   sourceImg.style.viewTransitionName = 'none';
@@ -167,23 +155,28 @@
                       // Configure new state (popup cleared, page source restored)
                       popupImage.style.viewTransitionName = 'none';
                       sourceImg.style.viewTransitionName = '';
+                      sourceImg.style.opacity = '1'; // Restore selected page image opacity
                       popup.classList.remove('show');
                   }).finished.finally(() => {
                       popupImage.style.viewTransitionName = '';
                       sourceImg.style.viewTransitionName = '';
+                      sourceImg.style.opacity = ''; // Reset inline opacity styles
+                      // Restore original names to other images
+                      otherImages.forEach(img => {
+                          img.style.viewTransitionName = img.dataset.savedTransitionName || '';
+                      });
                   });
                   return;
               }
           }
+          if (sourceImg) {
+              sourceImg.style.opacity = '';
+          }
           popup.classList.remove('show');
       };
       
-      closeButton.addEventListener('click', closePopup);
-      popup.addEventListener('click', (e) => {
-          if (e.target === popup) {
-              closePopup();
-          }
-      });
+      // Close popup when clicking anywhere on the overlay (including the image itself)
+      popup.addEventListener('click', closePopup);
       
       if (!window.imagePopupKeydownListener) {
           document.addEventListener('keydown', (e) => {
