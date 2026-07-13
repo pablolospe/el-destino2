@@ -18,6 +18,7 @@ const coverDimensions: Record<string, { width: number; height: number }> = {
   "/images/tapas/lapislazuli_tapa.webp": { width: 1646, height: 2573 },
   "/images/tapas/siglas_tapa.webp": { width: 1698, height: 2717 },
   "/images/tapas/sisu_tapa.webp": { width: 1838, height: 2669 },
+  "/images/tapas/el-corazon-de-un-pajaro.webp": { width: 1206, height: 1718 },
 };
 
 const portraitDimensions: Record<string, { width: number; height: number }> = {
@@ -28,6 +29,7 @@ const portraitDimensions: Record<string, { width: number; height: number }> = {
   "/images/autores/autor_agus.webp": { width: 1600, height: 1600 },
   "/images/autores/autoras_sol_y_cami.webp": { width: 1744, height: 1721 },
   "/images/autores/autor_gerardo.webp": { width: 3780, height: 4724 },
+  "/images/autores/guadalupe-pellicer.webp": { width: 567, height: 1008 },
 };
 
 const coverDims = coverDimensions[frontmatter.image.url] || { width: 550, height: 800 };
@@ -104,7 +106,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
             <div class="cursor-pointer" onclick={`openImagePopup('${frontmatter.image.url}')`}>
               <Image
                 transition:name={`portada${frontmatter.image.url}`}
-                class="w-full shadow-lg md:shadow-2xl shadow-gray-400"
+                class="w-full object-cover shadow-lg md:shadow-2xl shadow-gray-400"
                 height={coverDims.height}
                 width={coverDims.width}
                 style={`aspect-ratio: ${coverDims.width} / ${coverDims.height};`}
@@ -164,6 +166,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 
             <p class="text-left text-black text-lg lg:text-xl font-normal" set:html={frontmatter.description}>
             </p>
+          </div>
         </article>
 
         <div class="border-t border-zinc-100 my-12 md:my-16"></div>
@@ -175,7 +178,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
               <div class="cursor-pointer" onclick={`openImagePopup('${frontmatter.portrait.url}')`}>
                 <Image
                   transition:name={`autor${frontmatter.portrait.url}`}
-                  class="w-full drop-shadow-lg md:drop-shadow-2xl"
+                  class="w-full object-cover drop-shadow-lg md:drop-shadow-2xl"
                   height={portraitDims.height}
                   width={portraitDims.width}
                   style={`aspect-ratio: ${portraitDims.width} / ${portraitDims.height};`}
