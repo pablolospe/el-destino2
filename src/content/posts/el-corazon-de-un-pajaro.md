@@ -7,7 +7,7 @@ pages: "148"
 size: "14 x 20 cm"
 bookbinding: "Encuadernación rústica"
 author: "de Guadalupe Pellicer"
-bio: "Guadalupe Pellicer vive y trabaja en el campo desde hace más de tres décadas. Desde ese lugar protagónico de nuestro país ella eleva su voz y, en medio de un ambiente hostil, nombra aquello que pasa inadvertido para el resto de la sociedad. Su cuento «Cruzar el tiempo» integra una antología premiada y publicada en 2023 por la editorial Bocas Pintadas. El corazón de un pájaro es su primer libro de cuentos."
+bio: "Guadalupe Pellicer vive y trabaja en el campo desde hace más de tres décadas. Desde ese lugar protagónico de nuestro país ella eleva su voz y, en medio de un ambiente hostil, nombra aquello que pasa inadvertido para el resto de la sociedad. Su cuento «Cruzar el tiempo» integra una antología premiada y publicada en 2023 por la editorial Bocas Pintadas. <i>El corazón de un pájaro</i> es su primer libro de cuentos."
 image:
   url: "/images/tapas/el-corazon-de-un-pajaro.webp"
   alt: "El corazón de un pájaro"
