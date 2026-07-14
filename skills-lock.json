@@ -7,6 +7,23 @@
       "skillPath": "skills/astro/SKILL.md",
       "computedHash": "ebefe26b231d32379c14e41a46c2de7b4b0184543bedab7febdabe4fb21fba4e"
     },
+    "astro-expert": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "cd73bb072595efb67b20c237bec2c339023505b6c6af77908feae553939901e3"
+    },
+    "astro-seo": {
+      "source": "jdevalk/skills",
+      "sourceType": "github",
+      "skillPath": "astro-seo/SKILL.md",
+      "computedHash": "254a3027bc81e23f6ce5753f6920f97d8513f7b66c729a773816a74fc9793248"
+    },
+    "seo-aeo-best-practices": {
+      "source": "sanity-io/agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-aeo-best-practices/SKILL.md",
+      "computedHash": "edb99db85683ff99678fcb1bebc3a5653c3ea927eea9ee2534f19be86c7b8b81"
+    },
     "ui-typography": {
       "source": "bencium/bencium-marketplace",
       "sourceType": "github",
