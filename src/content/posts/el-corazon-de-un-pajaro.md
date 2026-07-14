@@ -2,7 +2,7 @@
 title: "El corazón de un pájaro"
 type: "Cuentos"
 pubDate: 2026-04-01
-description: "Guadalupe Pellicer lleva años construyendo una obra, pero este es su primer libro. Cuentista quirúrgica, amante de los detalles de la trama y cuidadosa al extremo de una prosa filosa y a la vez suavizada por un paisaje que tiene grabado en el alma, sale al ruedo con este volumen que late en las manos. FLOR MONFORT"
+description: "Guadalupe Pellicer lleva años construyendo una obra, pero este es su primer libro. Cuentista quirúrgica, amante de los detalles de la trama y cuidadosa al extremo de una prosa filosa y a la vez suavizada por un paisaje que tiene grabado en el alma, sale al ruedo con este volumen que late en las manos.<br><cite> &nbsp; Flor Monfort</cite>"
 pages: "148"
 size: "14 x 20 cm"
 bookbinding: "Encuadernación rústica"
