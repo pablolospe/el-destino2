@@ -82,12 +82,21 @@ const absoluteOgImage = ogImage.startsWith("http")
 
 <!-- HTML in your document's head -->
 <link rel="preconnect" href="https://rsms.me/" />
-<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-<link
-  href="https://api.fontshare.com/v2/css?f[]=jet-brains-mono@1,2&display=swap"
-  rel="stylesheet"
-/>
+<link rel="preconnect" href="https://api.fontshare.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+
+<link rel="preload" as="style" href="https://rsms.me/inter/inter.css" />
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css" /></noscript>
+
+<link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=jet-brains-mono@1,2&display=swap" />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=jet-brains-mono@1,2&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=jet-brains-mono@1,2&display=swap" /></noscript>
+
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" /></noscript>
+
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
