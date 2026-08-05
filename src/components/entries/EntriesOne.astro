@@ -3,6 +3,11 @@ import { Image } from "astro:assets";
 
 const { title, url, description, pubDate, author, image, tags, class: className = "" } = Astro.props;
 
+// Dynamically import all images from src/assets/tapas/
+const tapasImages = import.meta.glob<{ default: any }>('/src/assets/tapas/*.{png,jpg,jpeg,webp}', { eager: true });
+const assetKey = image ? image.replace('/images/tapas/', '/src/assets/tapas/') : '';
+const imageAsset = tapasImages[assetKey]?.default;
+
 // Aspect ratio lookup map to prevent Cumulative Layout Shift (CLS)
 const imageDimensions: Record<string, { width: number; height: number }> = {
   "/images/tapas/breve_manual_mockup.webp": { width: 1755, height: 1890 },
@@ -25,17 +30,32 @@ const dims = imageDimensions[image] || { width: 550, height: 800 };
     aria-label={`Leer más sobre ${title}`}
     class="h-full justify-center flex flex-col"
   >
-    <Image
-      transition:name={`portada${image}`}
-      class="block w-full h-full object-cover bg-center sm:block sm:w-auto sm:h-auto sm:object-contain sm:shadow-xl sm:shadow-gray-400"
-      height={dims.height}
-      width={dims.width}
-      style={`aspect-ratio: ${dims.width} / ${dims.height};`}
-      src={image}
-      alt={title}
-      loading="eager"
-      decoding="sync"
-      fetchpriority="high"
-    />
+    {imageAsset ? (
+      <Image
+        transition:name={`portada${image}`}
+        class="block w-full h-full object-cover bg-center sm:block sm:w-auto sm:h-auto sm:object-contain sm:shadow-xl sm:shadow-gray-400"
+        widths={[380, 650, 1000]}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        style={`aspect-ratio: ${dims.width} / ${dims.height};`}
+        src={imageAsset}
+        alt={title}
+        loading="eager"
+        decoding="sync"
+        fetchpriority="high"
+      />
+    ) : (
+      <Image
+        transition:name={`portada${image}`}
+        class="block w-full h-full object-cover bg-center sm:block sm:w-auto sm:h-auto sm:object-contain sm:shadow-xl sm:shadow-gray-400"
+        height={dims.height}
+        width={dims.width}
+        style={`aspect-ratio: ${dims.width} / ${dims.height};`}
+        src={image}
+        alt={title}
+        loading="eager"
+        decoding="sync"
+        fetchpriority="high"
+      />
+    )}
   </a>
 </li>
