@@ -93,14 +93,8 @@ Use AstroSeo in all the pages you want different Seo than the index page
   <div id="swipe-container" data-prev={prevPost ? `/posts/${prevPost.slug}` : ""} data-next={nextPost ? `/posts/${nextPost.slug}` : ""} class="px-8 pt-12 pb-8 md:px-12 mx-auto max-w-7xl lg:px-52">
     
     <!-- Top Navigation & Swipe Hint -->
-    <div class="flex justify-center mb-8 md:mb-12 text-xs uppercase font-sans tracking-wider text-neutral-400">
-      <!--
-      <a href="/libros" class="hover:text-black transition-colors duration-300 flex items-center gap-1.5">
-        <Image src={arrow} alt="Volver" width={14} height={14} class="opacity-60" />
-        <span>Libros</span>
-      </a>
-      -->
-      <span class="md:hidden text-[10px] tracking-widest animate-pulse">
+    <div class="flex justify-center mb-8 md:mb-12 text-xs uppercase font-sans tracking-wider text-neutral-600">
+      <span class="md:hidden text-[10px] tracking-widest animate-pulse font-medium">
         ← Desliza para navegar →
       </span>
     </div>
@@ -113,18 +107,20 @@ Use AstroSeo in all the pages you want different Seo than the index page
         >
           {frontmatter.title}
         </h1>
-        <h3
-          class="text-xl md:text-xl w-full tracking-tight text-balance font-medium font-display text-black mb-2"
-        >
-          {frontmatter.subtitle}
-        </h3>
+        {frontmatter.subtitle && (
+          <h2
+            class="text-xl md:text-xl w-full tracking-tight text-balance font-medium font-display text-black mb-2"
+          >
+            {frontmatter.subtitle}
+          </h2>
+        )}
       </div>
       </div>
-      <h2
+      <h3
         class="text-xl tracking-tight text-balance font-medium font-display text-black md:text-2xl mb-6"
       >
         de {frontmatter.author}
-      </h2>
+      </h3>
 
       <section class="mt-10">
         <article
@@ -228,8 +224,8 @@ Use AstroSeo in all the pages you want different Seo than the index page
       <!-- Bottom Navigation -->
       <div class="border-t border-zinc-100 pt-8 mt-16 flex items-center justify-between font-sans text-xs uppercase tracking-wider">
         {prevPost ? (
-          <a href={`/posts/${prevPost.slug}`} class="flex items-center gap-2 text-neutral-400 hover:text-black transition-colors duration-300 group">
-            <Image class="opacity-40 group-hover:-translate-x-1 transition-transform duration-300" src={arrow} alt="Anterior" width={14} height={14} />
+          <a href={`/posts/${prevPost.slug}`} class="flex items-center gap-2 text-neutral-600 hover:text-black transition-colors duration-300 group">
+            <Image class="opacity-60 group-hover:-translate-x-1 transition-transform duration-300" src={arrow} alt="Anterior" width={14} height={14} />
             <span class="hidden sm:inline max-w-[180px] truncate">{prevPost.title}</span>
             <span class="sm:hidden">Anterior</span>
           </a>
@@ -237,15 +233,15 @@ Use AstroSeo in all the pages you want different Seo than the index page
           <div />
         )}
         
-        <a href="/libros" class="text-neutral-400 hover:text-black transition-colors duration-300 font-semibold">
+        <a href="/libros" class="text-neutral-600 hover:text-black transition-colors duration-300 font-semibold">
           Ver todos
         </a>
 
         {nextPost ? (
-          <a href={`/posts/${nextPost.slug}`} class="flex items-center gap-2 text-neutral-400 hover:text-black transition-colors duration-300 group">
+          <a href={`/posts/${nextPost.slug}`} class="flex items-center gap-2 text-neutral-600 hover:text-black transition-colors duration-300 group">
             <span class="hidden sm:inline max-w-[180px] truncate">{nextPost.title}</span>
             <span class="sm:hidden">Siguiente</span>
-            <Image class="opacity-40 group-hover:translate-x-1 transition-transform duration-300 rotate-180" src={arrow} alt="Siguiente" width={14} height={14} />
+            <Image class="opacity-60 group-hover:translate-x-1 transition-transform duration-300 rotate-180" src={arrow} alt="Siguiente" width={14} height={14} />
           </a>
         ) : (
           <div />
