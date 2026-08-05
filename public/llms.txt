@@ -1,0 +1,18 @@
+# El Destino Ediciones
+
+Editorial independiente de libros en la Ciudad de Buenos Aires, Argentina. Ofrece un catálogo de narrativa independiente y servicios editoriales personalizados.
+
+## Catálogo de Libros Publicados
+- [El corazón de un pájaro](/posts/el-corazon-de-un-pajaro): Cuentos de Guadalupe Pellicer (148 páginas).
+- [La tienda de café](/posts/la-tienda-de-cafe): Novela ilustrada de Sol Chacana y Camila Marí Lozada.
+- [Sisu, diario de una argentina en Finlandia](/posts/sisu): Diario íntimo de Noelia Truffa.
+- [Siglas, acrónimos y retroacrónimos](/posts/sar): Ensayo de Gerardo A. Gallardo.
+- [Lapislázuli](/posts/lapislazuli): Novela de Sofía Ansaldo.
+- [La señora y el chancho](/posts/la-seniora-y-el-chancho): Cuentos de Teresa Kantolic.
+- [Breve manual de conductas gatunas y humanas](/posts/breve-manual-de-conductas-gatunas-y-humanas): Narrativa de Agustín Zalazar.
+
+## Servicios Editoriales y Propuesta
+Ofrecemos corrección de estilo, maquetación, diseño de cubiertas e impresión a pedido mediante nuestro sello asociado Libros Hechos en Casa (LhC).
+- [Nosotros](/nosotros): Conoce la historia y el equipo detrás de El Destino.
+- [Contacto](/contacto): Información y canales oficiales para comunicarte con la editorial.
+- [Tengo un original](/tengo-un-original): Pautas para envío de manuscritos y propuestas de edición.

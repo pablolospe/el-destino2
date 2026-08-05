@@ -3,11 +3,13 @@ import BaseHead from "@/components/BaseHead.astro";
 import Navigation from "@/components/global/Navigation.astro";
 import { ClientRouter } from "astro:transitions";
 import ClipboardCopier from "@/components/global/ClipboardCopier.astro";
+
+const { title, description, canonical, ogImage } = Astro.props;
 ---
 
 <html lang="es">
   <head>
-    <BaseHead />
+    <BaseHead title={title} description={description} canonical={canonical} ogImage={ogImage} />
     <ClientRouter />
   </head>
   <body class="bg-white flex flex-col min-h-screen">

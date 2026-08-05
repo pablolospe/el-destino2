@@ -6,6 +6,7 @@ import EntriesOne from "@/components/entries/EntriesOne.astro";
 const allPosts = await getCollection("posts");
 import Hero from "@/components/landing/Hero.astro";
 import Footer from "@/components/global/Footer.astro";
+import { siteConfig } from "@/config/seo-aeo";
 // import { Image } from "astro:assets";
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 // import presentacion from "public/images/presentacion-libro.webp";
@@ -15,9 +16,62 @@ const sortedPosts = allPosts.sort(
   (a, b) =>
     new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
+
+// Build structured AEO graph data from siteConfig
+const homepageGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Publisher",
+      "@id": `${siteConfig.siteUrl}#organization`,
+      "name": siteConfig.localBusiness.name,
+      "url": siteConfig.siteUrl,
+      "logo": siteConfig.localBusiness.logo,
+      "description": siteConfig.defaultDescription,
+      "sameAs": siteConfig.localBusiness.sameAs,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": siteConfig.localBusiness.address.addressLocality,
+        "addressCountry": siteConfig.localBusiness.address.addressCountry
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Editoriales",
+        "itemListElement": siteConfig.editorialServices.map((service) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": service.name,
+            "description": service.desc
+          }
+        }))
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.siteUrl}#website`,
+      "url": siteConfig.siteUrl,
+      "name": siteConfig.localBusiness.name,
+      "publisher": { "@id": `${siteConfig.siteUrl}#organization` }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteConfig.siteUrl}#faq`,
+      "mainEntity": siteConfig.faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
 ---
 
 <BaseLayout>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(homepageGraph)} />
   <Hero />
 
   <!-- POPUP DE LA PRESENTACION DEL LIBRO -->

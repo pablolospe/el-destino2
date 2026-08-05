@@ -1,24 +1,37 @@
 ---
 import "../styles/global.css";
 import { AstroSeo } from "@astrolib/seo";
+import { siteConfig } from "@/config/seo-aeo";
+
+const {
+  title = siteConfig.defaultTitle,
+  description = siteConfig.defaultDescription,
+  canonical = siteConfig.siteUrl,
+  ogImage = siteConfig.defaultOgImage,
+} = Astro.props;
+
+// Ensure OG image is an absolute URL
+const absoluteOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : `${siteConfig.siteUrl.replace(/\/$/, "")}${ogImage}`;
 ---
 <!---
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="El Destino Ediciones | Editorial de Libros Independientes"
-  description="Descubre la mejor selección de libros independientes y sumérgete en historias únicas. El Destino Ediciones te conecta con nuevas voces literarias."
-  canonical="https://www.eldestinoediciones.com.ar/"
+  title={title}
+  description={description}
+  canonical={canonical}
   openGraph={{
-    url: "https://www.eldestinoediciones.com.ar/",
-    title: "El Destino Ediciones | Libros Independientes",
-    description: "La mejor selección de libros independientes. Descubre historias únicas y apoya a nuevos talentos literarios.",
+    url: canonical,
+    title: title,
+    description: description,
     images: [
       {
-        url: "/favicons/el-destino-logo-baja.jpeg",
+        url: absoluteOgImage,
         width: 1200,
         height: 630,
-        alt: "Logo de El Destino Ediciones y libros",
+        alt: `Portada - ${title}`,
         type: "image/jpeg",
       },
     ],

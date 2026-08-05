@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://https://www.eldestinoediciones.com.ar/sitemap-0.xml
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+Sitemap: https://www.eldestinoediciones.com.ar/sitemap-index.xml

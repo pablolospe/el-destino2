@@ -5,6 +5,7 @@ const { frontmatter, prevPost, nextPost } = Astro.props;
 import arrow from "public/images/arrow_direction_left_back_icon.svg"; // O desde 'public/images'
 import { AstroSeo } from "@astrolib/seo";
 import ImagePopup from "../components/ImagePopup.astro";
+import { siteConfig } from "@/config/seo-aeo";
 
 const title = frontmatter.title;
 const description = frontmatter.description;
@@ -34,6 +35,32 @@ const portraitDimensions: Record<string, { width: number; height: number }> = {
 
 const coverDims = coverDimensions[frontmatter.image.url] || { width: 550, height: 800 };
 const portraitDims = frontmatter.portrait ? (portraitDimensions[frontmatter.portrait.url] || { width: 600, height: 900 }) : null;
+
+// Dynamically generate Book JSON-LD schema
+const bookSchema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": frontmatter.title,
+  "image": `${siteConfig.siteUrl.replace(/\/$/, "")}${frontmatter.image.url}`,
+  "description": frontmatter.description,
+  "numberOfPages": parseInt(frontmatter.pages) || 120,
+  "bookFormat": "https://schema.org/Paperback",
+  "author": {
+    "@type": "Person",
+    "name": frontmatter.author.replace(/^de\s+/i, "")
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": siteConfig.localBusiness.name,
+    "url": siteConfig.siteUrl
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": frontmatter.tienda,
+    "priceCurrency": "ARS",
+    "availability": "https://schema.org/InStock"
+  }
+};
 ---
 
 
@@ -62,6 +89,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 />
 
 <BaseLayout>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(bookSchema)} />
   <div id="swipe-container" data-prev={prevPost ? `/posts/${prevPost.slug}` : ""} data-next={nextPost ? `/posts/${nextPost.slug}` : ""} class="px-8 pt-12 pb-8 md:px-12 mx-auto max-w-7xl lg:px-52">
     
     <!-- Top Navigation & Swipe Hint -->

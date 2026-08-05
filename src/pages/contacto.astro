@@ -3,9 +3,28 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import EmailCopy from "@/components/contacto/EmailCopy.astro";
 import PhoneCopy from "@/components/contacto/PhoneCopy.astro";
 import Footer from "@/components/global/Footer.astro";
+import { siteConfig } from "@/config/seo-aeo";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": siteConfig.localBusiness.name,
+  "image": siteConfig.localBusiness.logo,
+  "email": siteConfig.localBusiness.email,
+  "telephone": siteConfig.localBusiness.telephone || undefined,
+  "url": `${siteConfig.siteUrl.replace(/\/$/, "")}/contacto`,
+  "priceRange": siteConfig.localBusiness.priceRange,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": siteConfig.localBusiness.address.addressLocality,
+    "addressCountry": siteConfig.localBusiness.address.addressCountry,
+    "postalCode": siteConfig.localBusiness.address.postalCode || undefined
+  }
+};
 ---
 
-<BaseLayout>
+<BaseLayout title={`Contacto | ${siteConfig.localBusiness.name}`} description={`Ponte en contacto con ${siteConfig.localBusiness.name}.`} canonical={`${siteConfig.siteUrl.replace(/\/$/, "")}/contacto`}>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <section
         class="w-full flex-grow flex-1 flex justify-center items-center py-12 px-4"
     >
