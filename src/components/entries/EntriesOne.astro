@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { title, url, description, pubDate, author, image, tags } = Astro.props;
+const { title, url, description, pubDate, author, image, tags, class: className = "" } = Astro.props;
 
 // Aspect ratio lookup map to prevent Cumulative Layout Shift (CLS)
 const imageDimensions: Record<string, { width: number; height: number }> = {
@@ -18,7 +18,7 @@ const imageDimensions: Record<string, { width: number; height: number }> = {
 const dims = imageDimensions[image] || { width: 550, height: 800 };
 ---
 
-<li class="flex flex-col h-full w-auto justify-center ">
+<li class={`flex flex-col h-full w-auto justify-center md:hover:scale-105 transition-all duration-600 ${className}`}>
   <a
     href={url}
     title={title}

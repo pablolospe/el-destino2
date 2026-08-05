@@ -15,9 +15,12 @@ const absoluteOgImage = ogImage.startsWith("http")
   ? ogImage
   : `${siteConfig.siteUrl.replace(/\/$/, "")}${ogImage}`;
 ---
-<!---
-Use AstroSeo in all the pages you want different Seo than the index page
--->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="author" content="Pablo Lospe (https://pablolospe.com.ar/)" />
+<meta name="publisher" content="El Destino Ediciones" />
+
 <AstroSeo
   title={title}
   description={description}
@@ -48,13 +51,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 
   gtag('config', 'G-6S7WSLGP1J');
 </script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="Michael Andreuzza" />
-<meta name="your keywords" content="Add ypour keywords here" />
+
 <!-- Favicon guidelines generated with https://favicon.io/ -->
 <link
   rel="apple-touch-icon"
@@ -82,8 +79,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
 <meta name="google-site-verification" content="cmP6-nR-qMC2YZhZTsZVoQZSRiRKVwDm0MJL28UCBEI" />
 <meta name="msapplication-TileColor" content="#ffffff" />
 <meta name="theme-color" content="#ffffff" />
-<link rel="manifest" href="/favicons/site.webmanifest" />
-<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#ffffff" />
+
 <!-- HTML in your document's head -->
 <link rel="preconnect" href="https://rsms.me/" />
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
